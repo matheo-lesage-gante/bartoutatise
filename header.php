@@ -10,28 +10,16 @@
     
     <div class ="nav-links">
       <ul>
-        <li><a href="../php/accueil.php">Accueil</a></li>
+        <li><a href="../php/accueil.php">Home</a></li>
         <li><a href="../php/contact.php">Contact</a></li>
-        <li><a href="../php/Map.php">Carte des Auberges</a></li>
-        <li><a href="../php/Avis.php">Avis</a></li>
+        <li><a href="../php/Faq.php">About us</a></li>
 
         <?php 
         session_start();
-<<<<<<< HEAD
-         if(isset($_SESSION['admin']) && $_SESSION['admin'] == 2) { 
-=======
          if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) { 
->>>>>>> 5af8029bbe6ce82797f658402c613a3c4f08c163
             echo '<li><a href="../php/admin.php">Admin</a></li>';
         }
-        if(isset($_SESSION['authentifie'])) { 
-          echo '<li><a href="../php/profil.php">Profil</a></li>';
-        }
-<<<<<<< HEAD
-        if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) { 
-=======
         if(isset($_SESSION['barman']) && $_SESSION['barman'] == 1) { 
->>>>>>> 5af8029bbe6ce82797f658402c613a3c4f08c163
             echo '<li><a href="../php/Auberge.php">MonAuberge</a></li>';
         } 
          if(isset($_SESSION['authentifie'])) { 
