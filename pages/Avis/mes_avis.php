@@ -3,8 +3,10 @@
 require("../Amis/connexion.php");
 
 // Récupérer les avis depuis la base
-$sql = "SELECT * FROM avis";
-$stmt = $conn->query($sql);
+$sql = "SELECT * FROM avis WHERE Id_profil = :id_user";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+$stmt->execute();
 $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>

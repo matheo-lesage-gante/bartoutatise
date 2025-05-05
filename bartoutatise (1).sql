@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `avis` (
   `Id_avis` int(10) NOT NULL,
+  `Id_profil` int(5) NOT NULL,
   `Nom_bar` varchar(64) NOT NULL,
   `note` int(1) NOT NULL,
   `avis` varchar(255) NOT NULL
@@ -58,16 +59,16 @@ CREATE TABLE `profil` (
   `Pseudo` varchar(15) NOT NULL,
   `Mail` varchar(64) NOT NULL,
   `Mdp` varchar(15) NOT NULL,
-  `Ami1` int(10) DEFAULT NULL,
-  `Ami2` int(10) DEFAULT NULL,
-  `Ami3` int(10) DEFAULT NULL,
-  `Ami4` int(10) DEFAULT NULL,
-  `Ami5` int(10) DEFAULT NULL,
-  `Ami6` int(10) DEFAULT NULL,
-  `Ami7` int(10) DEFAULT NULL,
-  `Ami8` int(10) DEFAULT NULL,
-  `Ami9` int(10) DEFAULT NULL,
-  `Ami10` int(10) DEFAULT NULL
+  `Ami1` int(5) DEFAULT NULL,
+  `Ami2` int(5) DEFAULT NULL,
+  `Ami3` int(5) DEFAULT NULL,
+  `Ami4` int(5) DEFAULT NULL,
+  `Ami5` int(5) DEFAULT NULL,
+  `Ami6` int(5) DEFAULT NULL,
+  `Ami7` int(5) DEFAULT NULL,
+  `Ami8` int(5) DEFAULT NULL,
+  `Ami9` int(5) DEFAULT NULL,
+  `Ami10` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
