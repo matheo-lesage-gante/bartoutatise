@@ -31,7 +31,7 @@
         
       </ul>
     </div>
-    <img src="../img/menu-btn.png" class="menu-hamburger" >
+    <img src="../../img/menu-btn.png" class="menu-hamburger" >
 </nav>
   <header>
 </header>

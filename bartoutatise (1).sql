@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 02, 2025 at 11:26 AM
+-- Generation Time: May 05, 2025 at 10:15 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -54,9 +54,9 @@ CREATE TABLE `bar` (
 --
 
 CREATE TABLE `profil` (
-  `Id` int(10) NOT NULL,
+  `Id` int(5) NOT NULL,
   `Pseudo` varchar(15) NOT NULL,
-  `Mail` varchar(32) NOT NULL,
+  `Mail` varchar(64) NOT NULL,
   `Mdp` varchar(15) NOT NULL,
   `Ami1` int(10) DEFAULT NULL,
   `Ami2` int(10) DEFAULT NULL,
@@ -69,6 +69,13 @@ CREATE TABLE `profil` (
   `Ami9` int(10) DEFAULT NULL,
   `Ami10` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `profil`
+--
+
+INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Ami1`, `Ami2`, `Ami3`, `Ami4`, `Ami5`, `Ami6`, `Ami7`, `Ami8`, `Ami9`, `Ami10`) VALUES
+(1, 'Bart', 'corentin.bondeau@gmail.com', 'Bart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -112,7 +119,7 @@ ALTER TABLE `bar`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

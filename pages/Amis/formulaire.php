@@ -5,32 +5,11 @@
 		$donnees=stripslashes($donnees);
 		$donnees=htmlspecialchars($donnees);
 		return $donnees;
-	}
-	
-	function valider_NomPrenom($NomPrenom){
-		$NomPrenom=nettoyer_donnees($NomPrenom);
-		if(preg_match("/^[a-zA-Z ]*$/",$NomPrenom) && strlen($NomPrenom)<=40){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
-	function valider_email($email){
-		$email=nettoyer_donnees($email);
-		$pattern="/^[a-zA-Z.-]+@junia.com$/";
-		if(preg_match($pattern,$email)){
-			return true;
-		}
-		else{
-			return false;
-		}
 	}	
 	
-	function valider_Telephone($tel){
-		$tel=nettoyer_donnees($tel);
-		if(preg_match("/^0[0-9]{9}$/",$tel)){
+	function valider_ID($id){
+		$id=nettoyer_donnees($id);
+		if(preg_match("/^[0-9]{1}$/",$id)){
 			return true;
 		}
 		else{
@@ -40,104 +19,109 @@
 	
 	//Tests bouton envoyer et methode POST
 	if (!isset($_POST['Envoyer']) || $_SERVER["REQUEST_METHOD"] != "POST") {
-		header('location:inscrire.php');
+		header('location:amis.php');
+		die();
+	}
+
+	//Tests si champs vides
+	if (empty($_POST['id'])) {
+		header('location:amis.php');
 		die();
 	}
 
 	//Récuperer les données d'une façon sécurisée
-	$vNom=nettoyer_donnees($_POST['nom']);
-	$vPrenom=nettoyer_donnees($_POST['prenom']);
-	$vEmail=nettoyer_donnees($_POST['email']);
-	$vTel=nettoyer_donnees($_POST['tel']);
-	$vPseudonyme=nettoyer_donnees($_POST['pseudonyme']);
-	$vMotdePasse=nettoyer_donnees($_POST['mdp']);
+	$vID=nettoyer_donnees($_POST['id']);
 
     try{
         require("connexion.php");
-        $reqPrep="SELECT * FROM membres WHERE Pseudonyme = :pseudonyme";
+        $reqPrep="SELECT * FROM profil WHERE Id = :id";
         $req = $conn->prepare($reqPrep);
-        $req->bindParam(':pseudonyme', $vPseudonyme);
+        $req->bindParam(':id', $vID);
         $req->execute();
         $resultat = $req->fetch();
-        if($resultat){
-            setcookie('Validité',"Pseudonym already used",time()+(30),'/', '',false,true);
-            header('location:inscrire.php');
-            die();
-        }
     }
     catch(Exception $e){
         die("Erreur : " . $e->getMessage());
     }
 
-    //Tests si champs vides
-	if (empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['pseudonyme']) || empty($_POST['mdp'])) {
-		header('location:inscrire.php');
-		die();
-	}
-
 	//Tests de validation des champs
 	
-	if (!valider_NomPrenom($vNom) && !valider_NomPrenom($vPrenom) && !valider_email($vEmail) && !valider_Telephone($vTel) && !valider_NomPrenom($vPseudonyme) && !valider_NomPrenom($vMotdePasse)){
-		header('location:inscrire.php');
+	if (!valider_ID($vID)){
+		header('location:amis.php');
 		die();
 	}
-    else{
-		if(($_POST['pseudonyme']=="Tarkhna") || ($_POST['pseudonyme']=="paintique") || ($_POST['pseudonyme']=="flofus") || ($_POST['pseudonyme']=="Dertycroissant") || ($_POST['pseudonyme']=="legeniedaladdin") || ($_POST['pseudonyme']=="goken")){
-			try{
-				require("connexion.php");               
-				
-				//Compléter ICI
-				$reqPrep="INSERT INTO membres (Nom, Prenom, Email, Telephone, Pseudonyme, MotdePasse, Score, Respo, IdImage) VALUES (:nom, :prenom, :email, :tel, :pseudonyme, :mdp, 0, 1, 0)";
-				$req = $conn->prepare($reqPrep);
-				$req->bindParam(':nom', $_POST['nom']);
-				$req->bindParam(':prenom', $_POST['prenom']);
-				$req->bindParam(':email', $_POST['email']);
-				$req->bindParam(':tel', $_POST['tel']);
-				$req->bindParam(':pseudonyme', $_POST['pseudonyme']);
-				$req->bindParam(':mdp', hash('sha256',$_POST['mdp']));
-				$req->execute();
+	else if ($resultat == false) {
+		echo "<h2> L'utilisateur n'existe pas </h2>";
+	}
+	else{
+		// Si l'utilisateur existe
 
-				$reqPrep="INSERT INTO scoreboard (Pseudo, niv1, niv2, niv3, niv4, niv5, niv6, niv7, niv8, niv9, niv10, niv11, niv12, nivgen) VALUES (:pseudo, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
-				$req = $conn->prepare($reqPrep);
-				$req->bindParam(':pseudo', $_POST['pseudonyme']);
-				$req->execute();
-
-				$conn= NULL;
-				header("Location:../Seconnecter/connecter.php");
-			}                 
-			catch(Exception $e){
-				die("Erreur : " . $e->getMessage());
+		echo "<h2> Pseudo : " . $resultat['Pseudo'] . "</h2>";
+		echo "<p> ID : " . $resultat['Id'] . "</p>";
+		for ($index = 1; $index < 11; $index++) {
+			if ($resultat['Ami'.$index] != NULL) {
+				echo "<p> Ami".$index." : " . $resultat['Ami'.$index] . "</p>";
 			}
 		}
-		else{
-			try{
-				require("connexion.php");               
-				
-				//Compléter ICI
-				$reqPrep="INSERT INTO membres (Nom, Prenom, Email, Telephone, Pseudonyme, MotdePasse, Score, Respo, IdImage) VALUES (:nom, :prenom, :email, :tel, :pseudonyme, :mdp, 0, 0, 1)";
-				$req = $conn->prepare($reqPrep);
-				$req->bindParam(':nom', $_POST['nom']);
-				$req->bindParam(':prenom', $_POST['prenom']);
-				$req->bindParam(':email', $_POST['email']);
-				$req->bindParam(':tel', $_POST['tel']);
-				$req->bindParam(':pseudonyme', $_POST['pseudonyme']);
-				$req->bindParam(':mdp', hash('sha256',$_POST['mdp']));
-				$req->execute();
-				
-				$reqPrep="INSERT INTO scoreboard (Pseudo, niv1, niv2, niv3, niv4, niv5, niv6, niv7, niv8, niv9, niv10, niv11, niv12, nivgen) VALUES (:pseudo, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
-				$req = $conn->prepare($reqPrep);
-				$req->bindParam(':pseudo', $_POST['pseudonyme']);
-				$req->execute();
 
-				$conn= NULL;
-				header("Location:../Seconnecter/connecter.php");
-			}                 
-			catch(Exception $e){
-				die("Erreur : " . $e->getMessage());
-			}
-		}
-			
-        
+		echo "<form method='post' action=''>";
+		echo "<input type='hidden' name='id_ami' value='" . $resultat['Id'] . "'>";
+		echo "<input type='submit' name='Ajouter' value='Ajouter un ami' class='send_button'>";
+		echo "</form>";
+
+		echo "<input type='button' value='Retour' onclick=\"window.location.href='amis.php'\" class='send_button'>";
+	}
+
+// Traitement de l’ajout d’ami
+if (isset($_POST['Ajouter'])) {
+    $idAmi = nettoyer_donnees($_POST['id_ami']);
+    session_start();
+    $monId = $_SESSION['Id']; // il faut stocker l'ID de l'utilisateur connecté en session
+
+    try {
+        // Récupérer mes amis actuels
+        $reqPrep = "SELECT * FROM profil WHERE Id = :id";
+        $req = $conn->prepare($reqPrep);
+        $req->bindParam(':id', $monId);
+        $req->execute();
+        $monProfil = $req->fetch();
+
+        $amiDejaPresent = false;
+        $amiAjoute = false;
+
+        // Vérifier si l'ami est déjà ajouté
+        for ($i = 1; $i <= 10; $i++) {
+            if ($monProfil['Ami'.$i] == $idAmi) {
+                $amiDejaPresent = true;
+                break;
+            }
+        }
+
+        if ($amiDejaPresent) {
+            echo "<p>Cet ami est déjà dans votre liste.</p>";
+        } else {
+            // Trouver la première colonne AmiX vide
+            for ($i = 1; $i <=10; $i++) {
+                if ($monProfil['Ami'.$i] == NULL) {
+                    $colonne = 'Ami'.$i;
+                    $updateReq = "UPDATE profil SET $colonne = :idAmi WHERE Id = :monId";
+                    $update = $conn->prepare($updateReq);
+                    $update->bindParam(':idAmi', $idAmi);
+                    $update->bindParam(':monId', $monId);
+                    $update->execute();
+                    $amiAjoute = true;
+                    echo "<p>Ami ajouté avec succès !</p>";
+                    break;
+                }
+            }
+
+            if (!$amiAjoute) {
+                echo "<p>Vous avez déjà 10 amis !</p>";
+            }
+        }
+    } catch (Exception $e) {
+        die("Erreur : " . $e->getMessage());
     }
-
+}
+	
 ?>
