@@ -7,8 +7,8 @@
     </head>
     <body style="justify-content: center">
 
-		<?php require("../../header.php");?>
-	
+		<?php require("../php/header.php");?> 
+      
     <h2> Recherche d'amis </h2>
     <form method="post" action="formulaire.php">
         <label for="id">ID :</label>
