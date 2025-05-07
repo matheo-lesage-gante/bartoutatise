@@ -1,0 +1,98 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e6d2; /* Fond parchemin */
+    background-image: url('https://i.imgur.com/ZYwDk8a.jpg'); /* Optionnel: fond texturé */
+    background-size: cover;
+    color: #3a2810; /* Couleur texte marron foncé */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#titre {
+    color: #b22222; /* Rouge gaulois */
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Comic Sans MS', cursive; /* Style BD */
+    margin-bottom: 30px;
+    border-bottom: 3px solid #b22222;
+    padding-bottom: 10px;
+}
+
+select, input, button {
+    padding: 8px 15px;
+    margin: 10px 0;
+    border: 2px solid #3a2810;
+    border-radius: 5px;
+    background-color: #f8f4e6;
+    font-size: 1em;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+select {
+    background-image: url('https://i.imgur.com/Jfq7WnN.png'); /* Petit menhir */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 35px;
+}
+
+button {
+    background-color: #b22222;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #8b1a1a;
+    transform: scale(1.05);
+}
+
+#biereDegre {
+    display: none;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(248, 244, 230, 0.7);
+    border-radius: 10px;
+    border: 2px dashed #3a2810;
+}
+
+/* Effet de bulle de BD */
+select, button, #biereDegre {
+    box-shadow: 5px 5px 0px rgba(58, 40, 16, 0.2);
+}
+
+/* Animation pour le titre */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#titre:hover {
+    animation: bounce 0.5s;
+}
+
+
+.message-taux {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #b22222; /* Rouge gaulois */
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Comic Sans MS', cursive; /* Style Astérix */
+    text-align: center;
+    min-width: 250px;
+}
