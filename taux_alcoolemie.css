@@ -1,7 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0e6d2; /* Fond parchemin */
-    background-image: url('https://i.imgur.com/ZYwDk8a.jpg'); /* Optionnel: fond texturé */
     background-size: cover;
     color: #3a2810; /* Couleur texte marron foncé */
     margin: 0;
@@ -43,6 +42,8 @@ select {
 
 button {
     background-color: #b22222;
+    position: relative;
+    bottom : 25px;
     color: white;
     cursor: pointer;
     transition: all 0.3s;
@@ -107,4 +108,10 @@ select, button, #biereDegre {
     border-radius: 10px;
     border: 2px dashed #3a2810;
     box-shadow: 5px 5px 0px rgba(58, 40, 16, 0.2);
+}
+
+#reset_verre{
+    display : block;
+    margin : auto;
+    bottom : -5px;
 }

@@ -13,7 +13,7 @@
         alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximative");
 
         window.onload = function () {
-        verifierBiere(); // Affiche correctement le champ au chargement
+            verifierBiere(); // Affiche correctement le champ au chargement
         };
     </script>
 
@@ -127,10 +127,12 @@
             <label for="Shot_F">Shot fort</label>
             <span id="Shot_F">0</span>
         </div>
+        <button id="reset_verre" onclick="resetVerre()">Reset</button>
     </div>
 
     <br><br>
     <button onclick="calculerTaux()">Calculer le taux</button>
+    <button onclick="resetTaux(); resetVerre()">Reset</button>
 
 <script>
     let intervalId = null;
@@ -351,6 +353,63 @@
                 }
             }
         }, 3600000); //toute les heures
+    }
+    function resetVerre(){
+        verre_biere1 = 0;
+        verre_biere2 = 0;
+        verre_biere3 = 0;
+        VR = 0;
+        VB = 0;
+        VRO = 0;
+        Verre_Champagne = 0;
+        Yager_Boob = 0;
+        Sky_Coca = 0;
+        Verre_Mojito = 0;
+        Verre_Sky = 0;
+        Verre_Sexe = 0;
+        Verre_Margarita = 0;
+        Verre_Monaco = 0;
+        Verre_Pina = 0;
+        Verre_Blood = 0;
+        Verre_Martini = 0;
+        Verre_Ricard = 0;
+        shot1 = 0;
+        shot2 = 0;
+        shot3 = 0;
+
+        document.getElementById("verre_biere1").textContent = "0";
+        document.getElementById("verre_biere2").textContent = "0";
+        document.getElementById("verre_biere3").textContent = "0";
+        document.getElementById("VR").textContent = "0";
+        document.getElementById("VB").textContent = "0";
+        document.getElementById("VRO").textContent = "0";
+        document.getElementById("Verre_Champagne").textContent = "0";
+        document.getElementById("Yager_Boob").textContent = "0";
+        document.getElementById("Sky_Coca").textContent = "0";
+        document.getElementById("verre_Mojito").textContent = "0";
+        document.getElementById("verre_Sexe").textContent = "0";
+        document.getElementById("verre_Margarita").textContent = "0";
+        document.getElementById("verre_Monaco").textContent = "0";
+        document.getElementById("verre_Pina").textContent = "0";
+        document.getElementById("verre_Blood").textContent = "0";
+        document.getElementById("verre_Martini").textContent = "0";
+        document.getElementById("verre_Ricard").textContent = "0";
+        document.getElementById("Shot_L").textContent = "0";
+        document.getElementById("Shot_M").textContent = "0";
+        document.getElementById("Shot_F").textContent = "0";
+    }
+
+    function resetTaux(){
+        taux = 0;
+        
+        const messages = document.querySelectorAll(".message-taux");
+        messages.forEach(message => message.remove());
+        
+        
+        const mess_taux = document.createElement("div");
+        mess_taux.textContent = "Votre taux vient d'être réinitialisé à 0 g/l";
+        mess_taux.className = "message-taux";
+        document.body.appendChild(mess_taux);
     }
 </script>
 
