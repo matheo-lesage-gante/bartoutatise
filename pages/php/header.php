@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/header.css">
 </head>
 <body>
 <nav class="navbar">
@@ -13,7 +13,8 @@
         <li><a href="../php/accueil.php">Accueil</a></li>
         <li><a href="../php/contact.php">Contact</a></li>
         <li><a href="../php/Map.php">Carte des Auberges</a></li>
-        <li><a href="../php/Avis.php">Avis</a></li>
+        <li><a href="../php/taux_alcoolemie.php">Calculix alcoolix</a></li>
+        <li><a href="../Avis/mes_avis.php">Avix</a></li>
 
         <?php 
         session_start();

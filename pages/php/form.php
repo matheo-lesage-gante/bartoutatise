@@ -60,10 +60,10 @@
         if(validerPseudoMdp($pseudo) == TRUE && validerPseudoMdp($password) == TRUE && $result->rowCount() > 0) {
             $_SESSION['Pseudo'] = $pseudo;
             $_SESSION['Mdp'] = $password;
-            // $result = $conn->prepare('SELECT Admin FROM profil where Pseudo = ? AND Mdp = ? ');
-            // $result->execute(array($pseudo, $password));
-            // $admin = $result->fetchColumn();
-            // $_SESSION['admin'] = $admin;
+            $result = $conn->prepare('SELECT Admin FROM profil where Pseudo = ? AND Mdp = ? ');
+            $result->execute(array($pseudo, $password));
+            $admin = $result->fetchColumn();
+            $_SESSION['admin'] = $admin;
             $_SESSION['authentifie'] = true;
             $result = $conn->prepare('SELECT Id FROM profil where Pseudo = ?');
             $result->execute(array($pseudo));

@@ -59,7 +59,7 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-<?php require("../../header.php");?>
+<?php require("../php/header.php");?>
 <div class="container">
     <h1>Liste des avis</h1>
     <?php if ($avis): ?>

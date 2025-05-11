@@ -17,6 +17,12 @@ body{
     align-items: center; 
     justify-content: center;
 }
+header {
+    height: 5vh;
+    width: 100vw;
+}
+
+
 
 /* Styles pour le header */
 
@@ -78,3 +84,161 @@ body{
 .nav-links.mobile-menu{
     margin-left: 0;
 }
+
+
+/*login.php*/
+.formulaire h2,
+.formulaire2 h2 {
+    font-size: 1.2em;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.formulaire,.formulaire2 {
+    width: 60%;
+    background-color: rgba(70, 0, 21, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    margin: 5% auto;
+    border-radius: 15px;
+}
+
+.formulaire {
+    border: 10px solid white;
+    background-color: rgba(70, 0, 21, 0.75);
+    background-size: cover;
+    height: auto;
+}
+
+.formulaire2 {
+    border: 2px solid rgb(0, 0, 0);
+    height: auto;
+}
+
+.formulaire input,
+.formulaire2 input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Impact', sans-serif;
+    font-size: 0.5em;
+}
+
+.formulaire a,
+.formulaire2 a {
+    color: rgb(0, 0, 0);
+    font-family: 'Impact', sans-serif;
+    font-size: 0.5em;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    body {
+        font-size: 2.5em;
+    }
+
+    .formulaire,
+    .formulaire2 {
+        width: 40%;
+        padding: 30px;
+    }
+
+    .formulaire h2,
+    .formulaire2 h2 {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 2em;
+    }
+
+    .formulaire,
+    .formulaire2 {
+        width: 60%;
+        padding: 20px;
+    }
+
+    .formulaire h2,
+    .formulaire2 h2 {
+        font-size: 0.9em;
+    }
+
+    .formulaire input,
+    .formulaire2 input {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1.5em;
+    }
+
+    .formulaire,
+    .formulaire2 {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .formulaire h2,
+    .formulaire2 h2 {
+        font-size: 0.8em;
+    }
+
+    .formulaire input,
+    .formulaire2 input {
+        padding: 10px;
+    }
+
+    .formulaire a,
+    .formulaire2 a {
+        font-size: 0.4em;
+    }
+}
+/* Fail.php */
+.main-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 15%;
+    color: #fff;
+  }
+  
+  .main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 40%;
+    margin-top : 10%;
+  }
