@@ -95,12 +95,13 @@ select, button, #biereDegre {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     font-family: 'Comic Sans MS', cursive; /* Style Astérix */
     text-align: center;
-    min-width: 250px;
+    min-width: 320px;
 }
 
 
-#List_verre {
+#List_Verre {
     position : absolute;
+    left : 100px;
     align-self: flex-start; /* Alignement à gauche dans le flex container */
     margin: 20px 0;
     padding: 15px;
