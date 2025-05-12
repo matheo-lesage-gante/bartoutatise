@@ -72,7 +72,7 @@
 		echo "<input type='button' value='Retour' onclick=\"window.location.href='amis.php'\" class='send_button'>";
 	}
 
-// Traitement de l’ajout d’ami
+// Traitement de l’ajout d’ami 
 if (isset($_POST['Ajouter'])) {
     $idAmi = nettoyer_donnees($_POST['id_ami']);
     session_start();
