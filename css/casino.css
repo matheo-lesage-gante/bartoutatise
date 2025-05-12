@@ -1,0 +1,147 @@
+.image{
+	position: absolute;
+    width: 650px;
+    height: 500px;
+	left: 25%;
+}
+
+#conteneur0{
+	display: flex;
+	border-style:solid;
+	padding: 1%;
+	width: 95%;
+	height: 95%;
+	margin: auto;
+}
+
+#conteneur1{
+	left:560px;	
+}
+
+#conteneur2{
+	left:627px;	
+}
+
+#conteneur3{
+	left:692px;
+}
+
+.conteneur {
+	position: absolute;
+	margin:auto;
+	top:230px;
+	height:110px;
+	width:64px;
+	overflow:hidden;
+}
+
+.diapo1{
+    position:absolute;
+	height:1230px;
+	width:64px;
+	animation-duration:1s;
+	animation-iteration-count:1;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+	
+}
+
+.diapo2{
+    position:absolute;
+	height:1230px;
+	width:64px;
+	animation-duration:1s;
+	animation-iteration-count:1;
+	animation-fill-mode: forwards;
+	animation-delay: 1.5s;
+	
+}
+
+.diapo3{
+    position:absolute;
+	height:1230px;
+	width:64px;
+	animation-duration:2s;
+	animation-iteration-count:1;
+	animation-fill-mode: forwards;
+	animation-delay: 2s;
+	
+}
+
+#diapo1{
+		animation-name:diaporama1;
+}
+
+#diapo2{
+		animation-name:diaporama2;
+}
+
+#diapo3{
+		animation-name:diaporama3;
+}
+
+#diapo4{
+		animation-name:diaporama4;
+}
+
+#diapo5{
+		animation-name:diaporama5;
+}
+
+#diapo6{
+		animation-name:diaporama6;
+}
+
+@keyframes diaporama1{
+	from{
+		top:0px;
+	}
+	to{
+		top:-642px;
+	}
+}
+
+@keyframes diaporama2{
+	from{
+		top:0px;
+	}
+	to{
+		top:-748px;
+	}
+}
+
+@keyframes diaporama3{
+	from{
+		top:0px;
+	}
+	to{
+		top:-854px;
+	}
+}
+
+@keyframes diaporama4{
+	from{
+		top:0px;
+	}
+	to{
+		top:-960px;
+	}
+}
+
+@keyframes diaporama5{
+	from{
+		top:0px;
+	}
+	to{
+		top:-1066px;
+	}
+}
+
+@keyframes diaporama6{
+	from{
+		top:0px;
+	}
+	to{
+		top:-1174px;
+	}
+}
