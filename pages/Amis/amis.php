@@ -32,24 +32,25 @@
             }
             if ($resultat['Ami1'] != NULL) {
                 for ($index = 1; $index < 11; $index++) {
-                    $id_ami = $resultat['Ami'.$index];
-                    try {
-                        require("connexion.php");
-                        $reqPrep = "SELECT * FROM profil WHERE Id = :id_ami";
-                        $req = $conn->prepare($reqPrep);
-                        $req->bindParam(':id_ami', $id_ami);
-                        $req->execute();
-                        $resultat_ami = $req->fetch();
-                    } catch (Exception $e) {
-                        die("Erreur : " . $e->getMessage());
-                    }
+                    if ($resultat['Ami1'] != NULL) {
+                        $id_ami = $resultat['Ami'.$index];
+                        try {
+                            require("connexion.php");
+                            $reqPrep = "SELECT * FROM profil WHERE Id = :id_ami";
+                            $req = $conn->prepare($reqPrep);
+                            $req->bindParam(':id_ami', $id_ami);
+                            $req->execute();
+                            $resultat_ami = $req->fetch();
+                        } catch (Exception $e) {
+                            die("Erreur : " . $e->getMessage());
+                        }
 
-                    echo "<div class='amis'>";
-                    echo "<h3>" . htmlspecialchars($resultat_ami['Pseudo']) . "</h3>";
-                    echo "<p> ID : " . htmlspecialchars($resultat_ami['Id']) . "</p>";
-                    echo "<p> Email : " . htmlspecialchars($resultat_ami['Mail']) . "</p>";
-                    echo "</div>";
-                }}
+                        echo "<div class='amis'>";
+                        echo "<h3>" . htmlspecialchars($resultat_ami['Pseudo']) . "</h3>";
+                        echo "<p> ID : " . htmlspecialchars($resultat_ami['Id']) . "</p>";
+                        echo "<p> Email : " . htmlspecialchars($resultat_ami['Mail']) . "</p>";
+                        echo "</div>";
+                }}}
             else {
                     echo "<p> Vous n'avez pas d'amis. </p>";
                 }
@@ -58,6 +59,7 @@
             echo "<p> Vous devez être connecté pour voir vos amis. </p>";
         }
     ?>
+    
 
     </body>
 </html>
