@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 05, 2025 at 10:15 AM
+-- Generation Time: May 12, 2025 at 07:48 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -59,6 +59,7 @@ CREATE TABLE `profil` (
   `Pseudo` varchar(15) NOT NULL,
   `Mail` varchar(64) NOT NULL,
   `Mdp` varchar(15) NOT NULL,
+  `Admin` int(3) NOT NULL DEFAULT '0',
   `Ami1` int(5) DEFAULT NULL,
   `Ami2` int(5) DEFAULT NULL,
   `Ami3` int(5) DEFAULT NULL,
@@ -75,8 +76,10 @@ CREATE TABLE `profil` (
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Ami1`, `Ami2`, `Ami3`, `Ami4`, `Ami5`, `Ami6`, `Ami7`, `Ami8`, `Ami9`, `Ami10`) VALUES
-(1, 'Bart', 'corentin.bondeau@gmail.com', 'Bart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Admin`, `Ami1`, `Ami2`, `Ami3`, `Ami4`, `Ami5`, `Ami6`, `Ami7`, `Ami8`, `Ami9`, `Ami10`) VALUES
+(1, 'Bart', 'corentin.bondeau@gmail.com', 'Bart', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'aaa', 'Angus@student.junia.com', 'aaa', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'aaz', 'Angus@student.junia.com', 'aaa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -120,7 +123,7 @@ ALTER TABLE `bar`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
