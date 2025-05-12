@@ -18,8 +18,8 @@
 
     <h2> Mes amis </h2>
     <?php
-        if (isset($_SESSION['id'])) {
-            $id = $_SESSION['id'];
+        if (isset($_SESSION['Id'])) {
+            $id = $_SESSION['Id'];
             try {
                 require("connexion.php");
                 $reqPrep = "SELECT * FROM profil WHERE Id = :id";
@@ -30,9 +30,8 @@
             } catch (Exception $e) {
                 die("Erreur : " . $e->getMessage());
             }
-
-            for ($index = 1; $index < 11; $index++) {
-                if ($resultat['Ami'.$index] != NULL) {
+            if ($resultat['Ami1'] != NULL) {
+                for ($index = 1; $index < 11; $index++) {
                     $id_ami = $resultat['Ami'.$index];
                     try {
                         require("connexion.php");
@@ -50,10 +49,11 @@
                     echo "<p> ID : " . htmlspecialchars($resultat_ami['Id']) . "</p>";
                     echo "<p> Email : " . htmlspecialchars($resultat_ami['Mail']) . "</p>";
                     echo "</div>";
-                } else {
+                }}
+            else {
                     echo "<p> Vous n'avez pas d'amis. </p>";
                 }
-            }
+            
         } else {
             echo "<p> Vous devez être connecté pour voir vos amis. </p>";
         }

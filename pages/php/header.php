@@ -11,20 +11,23 @@
     <div class ="nav-links">
       <ul>
         <li><a href="../php/accueil.php">Accueil</a></li>
-        <li><a href="../php/contact.php">Contact</a></li>
+        <li><a href="../Amis/amis.php">Amix</a></li>
         <li><a href="../php/Map.php">Carte des Auberges</a></li>
         <li><a href="../php/taux_alcoolemie.php">Calculix alcoolix</a></li>
         <li><a href="../Avis/mes_avis.php">Avix</a></li>
 
         <?php 
         session_start();
-         if(isset($_SESSION['admin']) && $_SESSION['admin'] == 2) { 
+        // Page admin
+         if(isset($_SESSION['admin']) && $_SESSION['admin'] == 2) {  
             echo '<li><a href="../php/admin.php">Admin</a></li>';
         }
+        // Page profil
         if(isset($_SESSION['authentifie'])) { 
           echo '<li><a href="../php/profil.php">Profil</a></li>';
         }
-        if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) { 
+        // Page d'accueil de l'auberge
+        if((isset($_SESSION['admin']) && $_SESSION['admin'] == 1) || (isset($_SESSION['admin']) && $_SESSION['admin'] == 2)) { 
             echo '<li><a href="../php/Auberge.php">MonAuberge</a></li>';
         } 
          if(isset($_SESSION['authentifie'])) { 
