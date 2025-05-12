@@ -32,7 +32,7 @@
             }
             if ($resultat['Ami1'] != NULL) {
                 for ($index = 1; $index < 11; $index++) {
-                    if ($resultat['Ami1'] != NULL) {
+                    if ($resultat['Ami'.$index] != NULL){
                         $id_ami = $resultat['Ami'.$index];
                         try {
                             require("connexion.php");
@@ -50,7 +50,8 @@
                         echo "<p> ID : " . htmlspecialchars($resultat_ami['Id']) . "</p>";
                         echo "<p> Email : " . htmlspecialchars($resultat_ami['Mail']) . "</p>";
                         echo "</div>";
-                }}}
+                    }}
+                }
             else {
                     echo "<p> Vous n'avez pas d'amis. </p>";
                 }
@@ -59,7 +60,6 @@
             echo "<p> Vous devez être connecté pour voir vos amis. </p>";
         }
     ?>
-    
 
     </body>
 </html>
