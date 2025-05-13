@@ -43,7 +43,7 @@
                   </h4>
               </div>
               <div class="image-section">
-                  <img src="../../img/asterix.png" alt="Astérix avec une bière"/>
+                  <img src="../../img/index/asterix.png" alt="Astérix avec une bière"/>
               </div>
           </div>
       </div>
