@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 section {
@@ -26,6 +27,12 @@ section h1 {
     text-shadow: 4px 6px 7px #333;
 }
 
+@media screen and (max-width: 800px) {
+    section h1 {
+        font-size: 2em;
+    }
+}
+
 .wave {
     position: absolute;
     bottom: 0;
@@ -36,6 +43,12 @@ section h1 {
     background-size: 1000px 100px;
     animation: animate 4s ease-in-out infinite;
     animation-delay: calc(var(--i) * 0.25s);
+}
+
+@media screen and (max-width: 800px) {
+    .wave {
+        animation: none;
+    }
 }
 
 .wave#wave1 {
@@ -62,6 +75,31 @@ section h1 {
     background-position-x: 100px;
 }
 
+@media screen and (max-width: 800px) {
+    .wave#wave1 {
+        z-index: 900;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wave#wave2 {
+        z-index: 899;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wave#wave3 {
+        z-index: 898;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wave#wave4 {
+        z-index: 898;
+    }
+}
+
+
 @keyframes animate {
     0%, 100% {
         transform: translateY(0px);
@@ -82,6 +120,12 @@ section h1 {
     padding-top: 8%;
     padding-bottom: 8%;
     color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+    .scroll h2 {
+        font-size: 2em;
+    }
 }
 
 .scroll h3 {
@@ -209,7 +253,6 @@ section h1 {
 
 @media (max-width: 768px) {
     .content-container {
-        flex-direction: column;
         text-align: center;
     }
     
