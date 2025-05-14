@@ -1,0 +1,39 @@
+#conteneur{
+	border-style:solid;
+	padding: 1%;
+	width: 95%;
+	height: 95%;
+	margin: auto;
+}
+
+.boite1{ 
+	border:thick solid;
+    position:absolute ;
+	width:135px;
+	height:135px;
+    left: 18%;
+    top: 40%;
+}
+
+.boite2{ 
+	border:thick solid;
+    position:absolute ;
+	width:135px;
+	height:135px;
+    right: 45%;
+    top: 40%;
+}
+
+.boite3{ 
+	border:thick solid;
+    position:absolute ;
+	width:135px;
+	height:135px;
+    right: 18%;
+    top: 40%;
+}
+
+.image{
+    width: 135px;
+    height: 135px;
+}
