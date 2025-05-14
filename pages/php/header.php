@@ -10,7 +10,7 @@
     
     <div class ="nav-links">
       <ul>
-        <li><a href="../php/accueil.php">Accueil</a></li>
+        <li><a href="../php/index.php">Cervesia</a></li>
         <li><a href="../Amis/amis.php">Amix</a></li>
         <li><a href="../php/Map.php">Carte des Auberges</a></li>
         <li><a href="../php/taux_alcoolemie.php">Calculix alcoolix</a></li>
@@ -28,7 +28,7 @@
         }
         // Page d'accueil de l'auberge
         if((isset($_SESSION['admin']) && $_SESSION['admin'] == 1) || (isset($_SESSION['admin']) && $_SESSION['admin'] == 2)) { 
-            echo '<li><a href="../php/Auberge.php">MonAuberge</a></li>';
+            echo '<li><a href="../php/Auberge.php">Taverne</a></li>';
         } 
          if(isset($_SESSION['authentifie'])) { 
             echo '<li><a href="../php/logout.php">Logout</a></li>';
