@@ -284,7 +284,7 @@
                 break;
             
             case "option4" : //Vin rouge
-                alcoolPur = 12;
+                alcoolPur = 11.52;
                 taux += alcoolPur / (poids * coeff_sexe);
                 VR += 1;
                 document.getElementById("VR").textContent = VR;
@@ -292,7 +292,7 @@
                 break;
 
             case "option5" : //Vin blanc
-                alcoolPur = 12;
+                alcoolPur = 11;
                 taux += alcoolPur / (poids * coeff_sexe);
                 VB += 1;
                 document.getElementById("VB").textContent = VB;
@@ -300,7 +300,7 @@
                 break;
 
             case "option6" : //Vin rosée
-                alcoolPur = 12;
+                alcoolPur = 10.5;
                 taux += alcoolPur / (poids * coeff_sexe);
                 VRO += 1;
                 document.getElementById("VRO").textContent = VRO;
@@ -309,7 +309,7 @@
 
 
             case "option7" : //Champagne
-                alcoolPur = 12;
+                alcoolPur = 9.6;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Champagne += 1;
                 document.getElementById("Verre_Champagne").textContent = Verre_Champagne;
@@ -317,7 +317,7 @@
                 break;
 
             case "option8" : //Yager
-                alcoolPur = 12;
+                alcoolPur = 28;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Yager_Boob += 1;
                 document.getElementById("Yager_Boob").textContent = Yager_Boob;
@@ -325,7 +325,7 @@
                 break;
 
             case "option9" : //Sky
-                alcoolPur = 12;
+                alcoolPur = 18;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Sky_Coca += 1;
                 document.getElementById("Sky_Coca").textContent = Sky_Coca;
@@ -333,7 +333,7 @@
                 break;
 
             case "option10" : //Mojito
-                alcoolPur = 12;
+                alcoolPur = 16;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Mojito += 1;
                 document.getElementById("Verre_Mojito").textContent = Verre_Mojito;
@@ -341,7 +341,7 @@
                 break;
 
             case "option11" : //Sexe on the Beach
-                alcoolPur = 12;
+                alcoolPur = 19.2;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Sexe += 1;
                 document.getElementById("Verre_Sexe").textContent = Verre_Sexe;
@@ -349,7 +349,7 @@
                 break;
 
             case "option12" : //Margarita
-                alcoolPur = 12;
+                alcoolPur = 24;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Margarita += 1;
                 document.getElementById("Verre_Margarita").textContent = Verre_Margarita;
@@ -357,7 +357,7 @@
                 break;
 
             case "option13" : //Monaco
-                alcoolPur = 12;
+                alcoolPur = 6;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Monaco += 1;
                 document.getElementById("Verre_Monaco").textContent = Verre_Monaco;
@@ -365,7 +365,7 @@
                 break;
 
             case "option14" : //Pina Colado
-                alcoolPur = 12;
+                alcoolPur = 14.4;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Pina += 1;
                 document.getElementById("Verre_Pina").textContent = Verre_Pina;
@@ -373,7 +373,7 @@
                 break;
 
             case "option15" : //Blood Mary
-                alcoolPur = 12;
+                alcoolPur = 14.4;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Blood += 1;
                 document.getElementById("Verre_Blood").textContent = Verre_Blood;
@@ -381,7 +381,7 @@
                 break;
 
             case "option16" : //Martini
-                alcoolPur = 12;
+                alcoolPur = 8.4;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Martini += 1;
                 document.getElementById("Verre_Martini").textContent = Verre_Martini;
@@ -389,7 +389,7 @@
                 break;
 
             case "option17" : //Ricard
-                alcoolPur = 12;
+                alcoolPur = 14.4;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_Ricard += 1;
                 document.getElementById("Verre_Ricard").textContent = Verre_Ricard;
@@ -397,7 +397,7 @@
                 break;
 
             case "option18" : //shot leger
-                alcoolPur = 12;
+                alcoolPur = 2.4;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Shot1 += 1;
                 document.getElementById("Shot_L").textContent = Shot1;
@@ -405,7 +405,7 @@
                 break;
 
             case "option19" : //shot moyen
-                alcoolPur = 12;
+                alcoolPur = 6;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Shot2 += 1;
                 document.getElementById("Shot_M").textContent = Shot2;
@@ -413,7 +413,7 @@
                 break;
 
             case "option20" : //Shot fort
-                alcoolPur = 12;
+                alcoolPur = 9.6;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Shot3 += 1;
                 document.getElementById("Shot_F").textContent = Shot3;
