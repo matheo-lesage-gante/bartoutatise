@@ -22,20 +22,20 @@ let map;
 
 // Icônes normales et agrandies
 const smallIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconUrl: '../leaflet/dist/images/marker-icon.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  shadowUrl: '../leaflet/dist/images/marker-shadow.png',
   shadowSize: [41, 41]
 });
 
 const largeIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconUrl: '../leaflet/dist/images/marker-icon.png',
   iconSize: [40, 65],
   iconAnchor: [20, 65],
   popupAnchor: [1, -34],
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  shadowUrl: '../leaflet/dist/images/marker-shadow.png',
   shadowSize: [65, 65]
 });
 
@@ -67,7 +67,7 @@ navigator.geolocation.getCurrentPosition(position => {
   initMap(userLat, userLon);
 
   // Récupère UNIQUEMENT les bars
-  fetch(`https://api.opentripmap.com/0.1/en/places/radius?radius=1000&lon=${userLon}&lat=${userLat}&kinds=bars&apikey=${OPENTRIPMAP_KEY}`)
+  fetch(`https://api.opentripmap.com/0.1/en/places/radius?radius=2000&lon=${userLon}&lat=${userLat}&kinds=bars&apikey=${OPENTRIPMAP_KEY}`)
     .then(res => res.json())
     .then(data => {
       if (!data.features || data.features.length === 0) {
