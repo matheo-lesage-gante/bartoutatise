@@ -12,8 +12,8 @@
     
     <script>
         alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximative");
-
         window.onload = function () {
+            poids();
             verifierBiere(); // Affiche correctement le champ au chargement
             loadFromCookie();
             affiche_data();
@@ -219,6 +219,7 @@
     let shot1 = 0;
     let shot2 = 0;
     let shot3 = 0;
+    
     const Verres = {
         Verre_biere1, Verre_biere2, Verre_biere3, VR, VB, VRO,
         Verre_Champagne, Yager_Boob, Sky_Coca, Verre_Mojito, Verre_Sexe,
@@ -232,9 +233,56 @@
         champDegre.style.display = (choix === "option1" || choix === "option2" || choix === "option3") ? "block" : "none";
     }
 
+    function poids() {
+        // Création des éléments
+        const divPoids = document.createElement('div');
+        divPoids.id = 'poidsContainer'; // Ajout d'un ID pour faciliter la sélection
+        
+        const labelPoids = document.createElement('label');
+        const inputPoids = document.createElement('input');
+        const validerBtn = document.createElement('button');
+
+        // Configuration des éléments
+        labelPoids.htmlFor = 'poidsInput';
+        labelPoids.textContent = 'Votre poids (kg) :';
+
+        inputPoids.type = 'number';
+        inputPoids.id = 'poidsInput';
+        inputPoids.min = '30';
+        inputPoids.max = '200';
+        inputPoids.step = '0.1';
+        inputPoids.required = true;
+
+        validerBtn.textContent = 'Valider';
+        validerBtn.onclick = function() {
+
+            const valeur = parseFloat(inputPoids.value);
+            poids = valeur;
+
+            if(poids > 0){
+                divPoids.remove();
+                alert(`Poids enregistré : ${poids} kg`);
+            }
+        
+            else{
+                alert("entrez un poids");
+            }
+        };
+
+        divPoids.appendChild(labelPoids);
+        divPoids.appendChild(inputPoids);
+        divPoids.appendChild(validerBtn);
+
+        divPoids.style.margin = '20px 0';
+        inputPoids.style.marginLeft = '10px';
+        validerBtn.style.marginLeft = '10px';
+
+        const titre = document.getElementById('titre');
+        titre.insertAdjacentElement('afterend', divPoids);
+}
+
+
     function calculerTaux() {
-    
-        let poids = 90;
         let sexe = "M";
         let coeff_sexe = (sexe === "M") ? 0.68 : 0.55;
         let degre;
