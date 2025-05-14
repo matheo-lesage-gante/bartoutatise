@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Taux d'alcool</title>
     <link rel="stylesheet" href="../../css/taux_alcoolemie.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -187,12 +188,12 @@
             <label for="Shot_F">Shot fort</label>
             <span id="Shot_F">0</span>
         </div>
-        <button id="reset_Verre" onclick="resetVerre()">Reset</button>
     </div>
 
     <br><br>
     <button onclick="calculerTaux()">Calculer le taux</button>
     <button onclick="resetTaux(); resetVerre()">Reset</button>
+    <button id="supp_cookie" onclick="supp_cookie()">Reset Cookies</button>
 
 <script>
     let intervalId = null;
@@ -262,7 +263,7 @@
                     alert("Veuillez entrer un degré d’alcool valide pour la bière.");
                     return;
                 }
-                alcoolPur =  (250 * degre) / 100;
+                alcoolPur =  (330 * degre) / 100;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_biere2 += 1;
                 document.getElementById("Verre_biere2").textContent = Verre_biere2;
@@ -275,7 +276,7 @@
                     alert("Veuillez entrer un degré d’alcool valide pour la bière.");
                     return;
                 }
-                alcoolPur =  (250 * degre) / 100;
+                alcoolPur =  (500 * degre) / 100;
                 taux += alcoolPur / (poids * coeff_sexe);
                 Verre_biere3 += 1;
                 document.getElementById("Verre_biere3").textContent = Verre_biere3;
@@ -499,6 +500,16 @@
         mess_taux.className = "message-taux";
         document.body.appendChild(mess_taux);
         saveToCookie();
+    }
+
+    function supp_cookie(){
+        const expires = new Date(0).toUTCString();
+        document.cookie = `alcoolData=; expires=${expires}; path=/`;
+        const mess_taux = document.createElement("div");
+        mess_taux.className = "message-taux";
+        mess_taux.textContent = "Vous venez de reinitialisé votre cookie";
+        document.body.appendChild(mess_taux);
+    
     }
 
     const cookieRow = document.cookie.split('; ').find(row => row.startsWith('alcoolData='));

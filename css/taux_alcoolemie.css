@@ -83,7 +83,7 @@ select, button, #biereDegre {
 
 
 .message-taux {
-    position: fixed;
+    position: absolute;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
@@ -101,18 +101,129 @@ select, button, #biereDegre {
 
 #List_Verre {
     position : absolute;
+    top : -10px;
     left : 100px;
     align-self: flex-start; /* Alignement à gauche dans le flex container */
     margin: 20px 0;
-    padding: 15px;
+    padding: 5px;
     background-color: rgba(248, 244, 230, 0.7);
     border-radius: 10px;
     border: 2px dashed #3a2810;
     box-shadow: 5px 5px 0px rgba(58, 40, 16, 0.2);
 }
 
-#reset_verre{
-    display : block;
-    margin : auto;
-    bottom : -5px;
+/* Chaque verre */
+#List_Verre > div {
+    flex: 1 1 30%;
+    min-width: 120px;
+    background-color: white;
+    padding: 2px;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+#supp_cookie{
+    position: fixed;
+    bottom: 40px;
+    right : 40px;
+}
+
+/* ---------- Responsive tablette (max-width: 768px) ---------- */
+@media screen and (max-width: 768px) {
+    h1, #titre {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #List_Verre {
+        position: static; /* enlever position absolute */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    #List_Verre > div {
+        flex: 1 1 45%;
+        min-width: 140px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 0.95rem;
+        margin-top: 10px;
+    }
+
+    select,
+    input[type="number"] {
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    #supp_cookie {
+        position: static;
+        margin: 20px auto 0 auto;
+        display: block;
+        text-align: center;
+    }
+}
+
+
+/* ---------- Responsive mobile (max-width: 480px) ---------- */
+@media screen and (max-width: 480px) {
+    body {
+        overflow-y: auto;
+    }
+    h1, #titre {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    #List_Verre {
+        position: relative;
+        top: 170px; /* Décale vers le bas */
+        left: 0;
+        margin-top: 20px;
+        align-self: center;
+    }
+
+    #List_Verre > div {
+        width: 90%;
+        min-width: auto;
+        flex: none;
+    }
+
+    button {
+        width: 100%;
+        font-size: 0.9rem;
+        bottom: 950px;
+    }
+
+    select,
+    input[type="number"] {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    #supp_cookie {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .message-taux {
+        position: relative;
+        bottom: 1000px;
+        left : 0%;
+        transform: translateX(0); /* Plus de centrage automatique */
+        width: 80%;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
 }
