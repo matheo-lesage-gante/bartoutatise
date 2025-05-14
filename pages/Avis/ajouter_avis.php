@@ -2,15 +2,23 @@
 // Connexion à la base de données
 require("../Amis/connexion.php");
 
+session_start();
+if (!isset($_SESSION['Id'])) {
+    header("Location: ../connexion.php");
+    exit();
+}
+
 // Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom_bar = htmlspecialchars(trim($_POST['nom_bar']));
     $note = intval($_POST['note']);
     $avis = htmlspecialchars(trim($_POST['avis']));
+    $id_user = $_SESSION['Id'];
 
     if (!empty($nom_bar) && $note >=1 && $note <=5 && !empty($avis)) {
-        $sql = "INSERT INTO avis (Nom_bar, note, avis) VALUES (:nom_bar, :note, :avis)";
+        $sql = "INSERT INTO avis (Id_profil, Nom_bar, note, avis) VALUES (:id_user, :nom_bar, :note, :avis)";
         $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id_user', $id_user);
         $stmt->bindParam(':nom_bar', $nom_bar);
         $stmt->bindParam(':note', $note);
         $stmt->bindParam(':avis', $avis);

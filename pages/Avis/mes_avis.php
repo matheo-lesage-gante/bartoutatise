@@ -1,11 +1,34 @@
 <?php
-// Connexion à la base de données (modifie les infos selon ton serveur)
+// Connexion à la base de données
 require("../Amis/connexion.php");
 
-// Récupérer les avis depuis la base
+session_start();
+if (!isset($_SESSION['Id'])) {
+    header("Location: ../connexion.php");
+    exit();
+}
+
+// Suppression d'un avis si un ID est passé en GET
+if (isset($_GET['supprimer']) && is_numeric($_GET['supprimer'])) {
+    $idAvis = intval($_GET['supprimer']);
+    $idUser = $_SESSION['Id'];
+
+    // Vérifie que l'avis appartient bien à l'utilisateur connecté
+    $sqlDelete = "DELETE FROM avis WHERE Id_avis = :idAvis AND Id_profil = :idUser";
+    $stmtDelete = $conn->prepare($sqlDelete);
+    $stmtDelete->bindParam(':idAvis', $idAvis, PDO::PARAM_INT);
+    $stmtDelete->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+    $stmtDelete->execute();
+
+    // Redirection après suppression
+    header("Location: mes_avis.php");
+    exit();
+}
+
+// Récupération des avis de l'utilisateur
 $sql = "SELECT * FROM avis WHERE Id_profil = :id_user";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+$stmt->bindParam(':id_user', $_SESSION['Id']);
 $stmt->execute();
 $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -39,6 +62,18 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
             font-weight: bold;
             color: #007BFF;
         }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
         .add-button {
             position: fixed;
             bottom: 20px;
@@ -59,14 +94,20 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-<?php require("../php/header.php");?>
+<?php require("../php/header.php"); ?>
+
 <div class="container">
     <h1>Liste des avis</h1>
+
     <?php if ($avis): ?>
         <?php foreach ($avis as $a): ?>
             <div class="avis">
                 <h3><?= htmlspecialchars($a['Nom_bar']) ?> <span class="note">(<?= htmlspecialchars($a['note']) ?>/5)</span></h3>
                 <p><?= nl2br(htmlspecialchars($a['avis'])) ?></p>
+                <form method="GET" onsubmit="return confirm('Voulez-vous vraiment supprimer cet avis ?');">
+                    <input type="hidden" name="supprimer" value="<?= $a['Id_avis'] ?>">
+                    <button type="submit" class="delete-button">Supprimer</button>
+                </form>
             </div>
         <?php endforeach; ?>
     <?php else: ?>
@@ -74,7 +115,7 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </div>
 
-<!-- Bouton en bas à droite -->
+<!-- Bouton pour ajouter un nouvel avis -->
 <button class="add-button" onclick="window.location.href='ajouter_avis.php'">+</button>
 
 </body>
