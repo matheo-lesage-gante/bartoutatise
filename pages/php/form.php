@@ -71,7 +71,7 @@
             $_SESSION['Id'] = $id;
             setcookie("pseudo", $pseudo, time() + 365*24*3600);
             setcookie("password", $password, time() + 365*24*3600);
-            header('Location: main.php');
+            header('Location: index.php');
         } else {
             header('Location: fail.php?err=falsePsdPswd');
         }

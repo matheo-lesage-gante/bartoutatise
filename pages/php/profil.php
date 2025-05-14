@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Gaulois</title>
   <link rel="stylesheet" href="../../css/profil.css" />
+
 </head>
 <body>
+  <?php include 'header.php'; ?>
   <div class="parchemin">
     <header>
-      <h1>⚔️ Profil de Gaulois : Astérix</h1>
+      <h1>⚔️ Profil de Gaulois : <?php echo $_SESSION['Pseudo'] ?></h1>
     </header>
 
     <section class="profil">
       <img src="avatar.png" alt="avatar" class="portrait" />
       <div class="infos">
-        <h2>Nom : Astérix</h2>
+        <h2>Nom : <?php echo $_SESSION['Pseudo'] ?></h2>
         <p><strong>Tribu :</strong> Les Irréductibles Gaulois</p>
         <p><strong>Force spéciale :</strong> Buveur de potion magique 💥</p>
         <p><strong>Compagnon :</strong> Obélix (et Idéfix 🐶)</p>
