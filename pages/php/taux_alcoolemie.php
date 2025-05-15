@@ -276,6 +276,7 @@
         divPoids.style.margin = '20px 0';
         inputPoids.style.marginLeft = '10px';
         validerBtn.style.marginLeft = '10px';
+        validerBtn.style.top = '0px';
 
         const titre = document.getElementById('titre');
         titre.insertAdjacentElement('afterend', divPoids);
