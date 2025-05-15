@@ -3,6 +3,7 @@
 require("../Amis/connexion.php");
 
 session_start();
+
 if (!isset($_SESSION['Id'])) {
     header("Location: ../php/login.php");
     exit();
@@ -39,6 +40,12 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Liste des avis</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: green;
+            margin: 0;
+            padding: 20px;
+        }
         .container {
             max-width: 700px;
             margin: auto;

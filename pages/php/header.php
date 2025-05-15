@@ -17,7 +17,10 @@
         <li><a href="../Avis/mes_avis.php">Avix</a></li>
 
         <?php 
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+          session_start();
+      }
+      
         // Page admin
          if(isset($_SESSION['admin']) && $_SESSION['admin'] == 2) {  
             echo '<li><a href="../php/admin.php">Admin</a></li>';
