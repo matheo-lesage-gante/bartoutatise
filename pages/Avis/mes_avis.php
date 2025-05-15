@@ -41,62 +41,87 @@ $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../../style.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: green;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #4a703c; /* Vert gaulois */
             margin: 0;
             padding: 20px;
+            color: #f5f1dc;
         }
         .container {
             max-width: 700px;
             margin: auto;
+            background-color: #f5f1dc;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            color: #4a703c;
+        }
+        h1 {
+            font-family: 'Papyrus', cursive, serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #b79f57;
+            text-shadow: 2px 2px #3b552d;
+            border-bottom: 4px solid #b79f57;
+            padding-bottom: 8px;
         }
         .avis {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 15px;
-            margin-bottom: 15px;
+            background: #fff8dc;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #4a703c;
         }
         .avis h3 {
-            margin: 0 0 5px 0;
-            color: #333;
+            margin: 0 0 10px 0;
+            color: #6b4e0e;
+            font-weight: bold;
         }
         .avis p {
             margin: 0;
-            color: #555;
+            color: #4a4a2a;
+            font-size: 1.1rem;
         }
         .note {
             font-weight: bold;
-            color: #007BFF;
+            color: #b79f57;
+            font-size: 1.1rem;
         }
         .delete-button {
-            background-color: red;
+            background-color: #a63e2a; /* Rouge gaulois */
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
+            padding: 10px 16px;
+            border-radius: 12px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .delete-button:hover {
-            background-color: darkred;
+            background-color: #7c2b20;
         }
         .add-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #007BFF;
-            color: white;
+            background: #b79f57;
+            color: #4a703c;
             border: none;
-            padding: 15px 20px;
+            padding: 18px 24px;
             border-radius: 50%;
-            font-size: 24px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             cursor: pointer;
             transition: background 0.3s;
+            font-weight: bold;
         }
         .add-button:hover {
-            background: #0056b3;
+            background: #8a7c43;
+            color: #fff8dc;
         }
     </style>
 </head>

@@ -7,8 +7,45 @@
     <style>
         body {
             margin: 0;
-            padding-top: 80px; /* pour laisser de l'espace au header */
-            background-color: green;
+            padding-top: 80px; /* pour ne pas que le header se superpose */
+            background-color: #6b8e23;
+            background-size: cover;
+            font-family: 'Papyrus', cursive;
+            color: #2c1f0c;
+        }
+
+        h2 {
+            text-align: center;
+            color: #7f4f24;
+            font-size: 32px;
+            text-shadow: 1px 1px 0 #fff;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .send_button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f4a261;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .send_button:hover {
+            background-color: #e76f51;
         }
 
         .amis-container {
@@ -16,28 +53,33 @@
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            padding: 0 20px;
         }
 
         .card-ami {
-            background-color: #f5f5f5;
-            border-radius: 12px;
+            background-color: #fff3cd;
+            border-radius: 16px;
             padding: 20px;
             width: 250px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
             text-align: center;
+            border: 3px solid #7f4f24;
         }
 
         .card-ami h3 {
             margin-bottom: 10px;
+            font-size: 22px;
+            color: #7f4f24;
         }
 
         .card-ami p {
             margin: 5px 0;
+            font-size: 16px;
         }
 
         .delete-button {
-            background-color: #e74c3c;
+            background-color: #c1121f;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -47,32 +89,34 @@
         }
 
         .delete-button:hover {
-            background-color: #c0392b;
+            background-color: #780000;
         }
 
-        .send_button {
-            margin-top: 10px;
+        p {
+            text-align: center;
+            font-size: 18px;
         }
     </style>
 </head>
-<body style="justify-content: center">
+<body>
 
-<?php require("../php/header.php");?> 
+<?php require("../php/header.php"); ?> 
 
-<h2>Recherche d'amis</h2>
+<h2>🔍 Recherche d’un Gaulois</h2>
 <form method="post" action="formulaire.php">
     <label for="id">ID :</label>
     <input type="text" name="id" id="id" required />
     <input type="submit" name="Envoyer" class="send_button" value="Rechercher" />
 </form>
 
-<h2>Mes amis</h2>
+<h2>🛡️ Mes compagnons de bataille</h2>
 
 <?php
+
 if (isset($_SESSION['Id'])) {
     $id = $_SESSION['Id'];
 
-    // Traitement suppression
+    // Suppression d'un ami
     if (isset($_POST['supprimer_ami'])) {
         $amiASupprimer = $_POST['ami_id'];
         try {
@@ -88,7 +132,7 @@ if (isset($_SESSION['Id'])) {
                     $update = $conn->prepare("UPDATE profil SET $col = NULL WHERE Id = :id");
                     $update->bindParam(':id', $id);
                     $update->execute();
-                    echo "<p style='color:green;'>Ami supprimé avec succès.</p>";
+                    echo "<p style='color:green;'>Ce valeureux guerrier a été banni du village.</p>";
                     break;
                 }
             }
@@ -111,9 +155,9 @@ if (isset($_SESSION['Id'])) {
     echo "<div class='amis-container'>";
     $aDesAmis = false;
     for ($index = 1; $index <= 10; $index++) {
-        if (!empty($resultat['Ami'.$index])) {
+        if (!empty($resultat['Ami' . $index])) {
             $aDesAmis = true;
-            $id_ami = $resultat['Ami'.$index];
+            $id_ami = $resultat['Ami' . $index];
 
             try {
                 require("connexion.php");
@@ -139,14 +183,12 @@ if (isset($_SESSION['Id'])) {
     echo "</div>";
 
     if (!$aDesAmis) {
-        echo "<p>Vous n'avez pas encore d'amis.</p>";
+        echo "<p>Pas de compagnons pour l’instant... Par Toutatis, il faut y remédier !</p>";
     }
 
 } else {
-    echo "<p>Vous devez être connecté pour voir vos amis.</p>";
+    echo "<p>Tu dois être connecté pour rejoindre la tribu des irréductibles.</p>";
 }
-die();
 ?>
-
 </body>
 </html>
