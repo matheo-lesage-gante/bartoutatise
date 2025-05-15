@@ -7,7 +7,6 @@
   </head>
   <body>
     <?php include 'header.php'?>
-    <h1>Bar'toutatise</h1>  
     <form method="post" action="form.php">
       <div class ="formulaire2">
       <h2>Sign up</h2>
