@@ -39,31 +39,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Ajouter un avis</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
+        body {
+            background-color: #4a703c; /* Vert gaulois */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            color: #f5f1dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
         .container {
             max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+            background: #f5f1dc;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            color: #4a703c;
         }
-        input, textarea, select, button {
+        h1 {
+            font-family: 'Papyrus', cursive, serif;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #b79f57;
+            text-shadow: 2px 2px #3b552d;
+            border-bottom: 4px solid #b79f57;
+            padding-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        input[type="text"],
+        textarea,
+        select {
             width: 100%;
             padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
+            margin-top: 6px;
+            border-radius: 10px;
+            border: 1.5px solid #b79f57;
+            font-size: 1rem;
+            color: #4a703c;
+            resize: vertical;
+            font-family: inherit;
+        }
+        textarea {
+            min-height: 100px;
         }
         button {
-            background: #007BFF;
-            color: white;
+            width: 48%;
+            padding: 12px 0;
+            margin-top: 20px;
             border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
             cursor: pointer;
+            font-family: inherit;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background: #0056b3;
+        button[type="submit"] {
+            background-color: #a63e2a; /* Rouge gaulois */
+            color: #f5f1dc;
+            margin-right: 4%;
+        }
+        button[type="submit"]:hover {
+            background-color: #7c2b20;
+        }
+        .cancel-button {
+            background-color: #b79f57; /* Or gaulois */
+            color: #4a703c;
+        }
+        .cancel-button:hover {
+            background-color: #8a7c43;
+            color: #fff8dc;
         }
         .error {
-            color: red;
+            color: #a63e2a;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -72,12 +131,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h1>Ajouter un avis</h1>
     <?php if (!empty($erreur)) echo "<p class='error'>$erreur</p>"; ?>
-    <form method="POST">
-        <label>Nom du bar :</label>
-        <input type="text" name="nom_bar" required>
+    <form method="POST" novalidate>
+        <label for="nom_bar">Nom du bar :</label>
+        <input type="text" id="nom_bar" name="nom_bar" required>
 
-        <label>Note (1 à 5) :</label>
-        <select name="note" required>
+        <label for="note">Note (1 à 5) :</label>
+        <select id="note" name="note" required>
             <option value="">-- Sélectionnez --</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -86,11 +145,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="5">5</option>
         </select>
 
-        <label>Avis :</label>
-        <textarea name="avis" rows="4" required></textarea>
+        <label for="avis">Avis :</label>
+        <textarea id="avis" name="avis" rows="4" required></textarea>
 
-        <button type="submit">Ajouter</button>
-        <button type="button" class="cancel-button" onclick="window.location.href='mes_avis.php'">Annuler</button>
+        <div style="display:flex; justify-content: space-between;">
+            <button type="submit">Ajouter</button>
+            <button type="button" class="cancel-button" onclick="window.location.href='mes_avis.php'">Annuler</button>
+        </div>
     </form>
 </div>
 

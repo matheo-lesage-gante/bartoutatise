@@ -1,0 +1,39 @@
+#conteneur0{
+	display: flex;
+	border-style:solid;
+	padding: 1%;
+	width: 95%;
+	height: 95%;
+	margin: auto;
+}
+
+#m1{
+	width: 40%;
+	height: 45%;
+}
+
+#m2{
+	width: 45%;
+	height: 50%;
+}
+
+#m3{
+	width: 50%;
+	height: 55%;
+}
+
+#m4{
+	width: 50%;
+	height: 60%;
+}
+
+#m5{
+	width: 50%;
+	height: 65%;
+}
+
+#m6{
+	width: 50%;
+	height: 70%;
+}
+

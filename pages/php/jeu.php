@@ -10,15 +10,16 @@
         <div id="conteneur">
 			<div class="boite1">
                 <a href="casino.php">
-				<img src="../../img/touns.jpg" class="image">
+				<img src="../../img/machine.jpg" class="image">
 			</div>
 
 			<div class="boite2">
-            <img src="../../img/coco.jpg" class="image">
+                <a href="menhir.php">
+                <img src="../../img/menhir1.jpg" class="image">
 			</div>
 
 			<div class="boite3">
-            <img src="../../img/lecon.jpg" class="image">
+            <img src="../../img/.jpg" class="image">
 			</div>
 		</div>
 
