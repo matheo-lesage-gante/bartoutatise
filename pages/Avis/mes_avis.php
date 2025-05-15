@@ -4,7 +4,7 @@ require("../Amis/connexion.php");
 
 session_start();
 if (!isset($_SESSION['Id'])) {
-    header("Location: ../connexion.php");
+    header("Location: ../php/login.php");
     exit();
 }
 
