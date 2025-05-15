@@ -20,7 +20,7 @@
         session_start();
         // Page admin
          if(isset($_SESSION['admin']) && $_SESSION['admin'] == 2) {  
-            echo '<li><a href="../php/admin.php">Admin</a></li>';
+            echo '<li><a href="../admin/admin.php">Admin</a></li>';
         }
         // Page profil
         if(isset($_SESSION['authentifie'])) { 

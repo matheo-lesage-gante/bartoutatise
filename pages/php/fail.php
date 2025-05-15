@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="2;URL=accueil.php">
+    <meta http-equiv="refresh" content="2;URL=index.php">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Bar'toutatise | Fail</title>
 </head>
 <body>
@@ -36,7 +36,6 @@
         </div>
     </div>
 
-    
-    <?php include("footer.php")?>
+
 </body>
 </html>
