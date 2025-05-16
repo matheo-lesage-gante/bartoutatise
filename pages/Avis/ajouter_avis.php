@@ -14,20 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $note = intval($_POST['note']);
     $avis = htmlspecialchars(trim($_POST['avis']));
     $id_user = $_SESSION['Id'];
+    $date_avis = date('Y-m-d H:i:s'); // date et heure actuelle
 
-    if (!empty($nom_bar) && $note >=1 && $note <=5 && !empty($avis)) {
-        $sql = "INSERT INTO avis (Id_profil, Nom_bar, note, avis) VALUES (:id_user, :nom_bar, :note, :avis)";
+    if (!empty($nom_bar) && $note >= 1 && $note <= 5 && !empty($avis)) {
+        $sql = "INSERT INTO avis (Id_profil, Nom_bar, note, avis, date_avis) 
+                VALUES (:id_user, :nom_bar, :note, :avis, :date_avis)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':id_user', $id_user);
         $stmt->bindParam(':nom_bar', $nom_bar);
         $stmt->bindParam(':note', $note);
         $stmt->bindParam(':avis', $avis);
+        $stmt->bindParam(':date_avis', $date_avis);
         $stmt->execute();
 
-        header("Location: mes_avis.php");
+        header("Location: mes_avis.php?onglet=mes");
         exit();
     } else {
-        $erreur = "Veuillez remplir tous les champs correctement.";
+        $erreur = "Par Toutatis ! Tous les champs doivent être remplis correctement, même le chaudron du druide !";
     }
 }
 ?>
@@ -36,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter un avis</title>
+    <title>Déposer un avis Gaulois</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
         body {
@@ -129,28 +132,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <div class="container">
-    <h1>Ajouter un avis</h1>
+    <h1>Déposer un avis Gaulois</h1>
     <?php if (!empty($erreur)) echo "<p class='error'>$erreur</p>"; ?>
     <form method="POST" novalidate>
-        <label for="nom_bar">Nom du bar :</label>
+        <label for="nom_bar">Nom de la Taverne :</label>
         <input type="text" id="nom_bar" name="nom_bar" required>
 
-        <label for="note">Note (1 à 5) :</label>
+        <label for="note">Potion de force (note 1 à 5) :</label>
         <select id="note" name="note" required>
-            <option value="">-- Sélectionnez --</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="">-- Choisis ta dose --</option>
+            <option value="1">1 (presque pas d'effet)</option>
+            <option value="2">2 (faible)</option>
+            <option value="3">3 (moyenne)</option>
+            <option value="4">4 (forte)</option>
+            <option value="5">5 (potion de druide !) </option>
         </select>
 
-        <label for="avis">Avis :</label>
+        <label for="avis">Ton récit héroïque :</label>
         <textarea id="avis" name="avis" rows="4" required></textarea>
 
         <div style="display:flex; justify-content: space-between;">
-            <button type="submit">Ajouter</button>
-            <button type="button" class="cancel-button" onclick="window.location.href='mes_avis.php'">Annuler</button>
+            <button type="submit">Envoyer au village</button>
+            <button type="button" class="cancel-button" onclick="window.location.href='mes_avis.php?onglet=mes'">Retour au village</button>
         </div>
     </form>
 </div>

@@ -54,6 +54,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
 
+            // Afficher les meilleurs avis (4 et 5 étoiles) du profil consulté
+            try {
+                $reqAvis = "SELECT Nom_bar, note, avis, date_avis 
+                            FROM avis 
+                            WHERE Id_profil = :idUser AND note >= 4 
+                            ORDER BY date_avis DESC";
+                $stmtAvis = $conn->prepare($reqAvis);
+                $stmtAvis->bindParam(':idUser', $vID);
+                $stmtAvis->execute();
+                $avis = $stmtAvis->fetchAll();
+
+                if ($avis) {
+                    echo "<h3>Meilleurs avis (4 et 5 étoiles) :</h3><ul style='list-style:none; padding-left:0;'>";
+                    foreach ($avis as $unAvis) {
+                        $dateFormatee = date("d/m/Y", strtotime($unAvis['date_avis']));
+                        echo "<li style='margin-bottom:15px; padding:10px; background:#e8f0d1; border-radius:8px;'>";
+                        echo "<strong>" . htmlspecialchars($unAvis['Nom_bar']) . "</strong> ";
+                        echo "<span style='color:#b79f57; font-weight:bold;'>(" . intval($unAvis['note']) . "/5)</span><br>";
+                        echo "<em>" . nl2br(htmlspecialchars($unAvis['avis'])) . "</em><br>";
+                        echo "<small>Date : " . $dateFormatee . "</small>";
+                        echo "</li>";
+                    }
+                    echo "</ul>";
+                } else {
+                    echo "<p>Pas encore d'avis 4 ou 5 étoiles pour ce profil.</p>";
+                }
+            } catch (Exception $e) {
+                echo "<p>Erreur lors de la récupération des avis : " . htmlspecialchars($e->getMessage()) . "</p>";
+            }
+
             echo "<form method='post' action=''>";
             echo "<input type='hidden' name='id_ami' value='" . $resultat['Id'] . "'>";
             echo "<input type='submit' name='Ajouter' value='Ajouter un ami' class='send_button'>";
@@ -137,6 +167,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border-bottom: 3px solid #b79f57;
         padding-bottom: 5px;
         margin-bottom: 20px;
+    }
+    h3 {
+        font-family: 'Papyrus', cursive, serif;
+        color: #4a703c;
+        margin-top: 30px;
+        margin-bottom: 10px;
     }
     p {
         font-size: 1.1rem;
