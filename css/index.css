@@ -5,7 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
 
 section {
@@ -26,7 +25,7 @@ section h1 {
     color: #fff;
     text-shadow: 4px 6px 7px #333;
 }
-
+ 
 @media screen and (max-width: 800px) {
     section h1 {
         font-size: 2em;

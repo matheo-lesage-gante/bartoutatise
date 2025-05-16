@@ -39,7 +39,6 @@
                       <b>- Générateur de Barathon :</b> Créez votre parcours de bars en fonction de vos alcools préférés.<br><br>
                       <b>- Calculateur de Taux d'Alcoolémie :</b> Restez responsable en suivant votre consommation.<br><br>
                       <b>- Mini-Jeu "Qui Paie sa Tournée ?" :</b> Amusez-vous avec vos amis pour désigner celui qui paie.<br><br>
-                      <b>- Carte Interactive :</b> Ajoutez des pins pour chaque verre dégusté dans un bar.
                   </h4>
               </div>
               <div class="image-section">
