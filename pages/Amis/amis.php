@@ -3,7 +3,7 @@
     <head>
         <title>Bar'Toutatise</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="amis.css">
+        <link rel="stylesheet" href="../../css/amis.css">
     </head>
     <body>
 
