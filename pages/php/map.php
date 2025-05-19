@@ -19,6 +19,7 @@
   </style>
 </head>
 <body>
+<?php include 'header.php'; ?>
 
 <div id="controls">
   <select id="barType">

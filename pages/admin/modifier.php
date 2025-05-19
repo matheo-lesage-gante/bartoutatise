@@ -8,7 +8,7 @@
 
 			$val = 0;
 			if($_GET["admin"] == "non")
-				$val = 1;
+				$val = 2;
 			$id = $_GET['identifiant']; //on recupere l identifiant passe dans l url
 			$reqPrep="UPDATE profil SET admin = :val WHERE id = :id";//La requete SQL DELETES
 			$req = $conn->prepare($reqPrep);//Préparer la requete
