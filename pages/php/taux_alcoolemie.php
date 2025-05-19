@@ -271,7 +271,7 @@
     </div>
 
     <br><br>
-    <button onclick="calculerTaux()">Calculer le taux</button>
+    <button onclick="calculerTaux()">Ajouter</button>
     <button onclick="resetTaux(); resetVerre()">Reset</button>
     <button id="supp_cookie" onclick="supp_cookie()">Reset Cookies</button>
 
