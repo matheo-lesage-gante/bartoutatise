@@ -108,85 +108,165 @@
     </div>
     
     <div id="List_Verre">
-        <div id="biere1">
-            <label for="Verre_biere1">Bière 25cl</label>
-            <span id="Verre_biere1">0</span>
+        <div id="Biere1" class="div_verre">
+            <div class="verre" id="biere1">
+                <label for="Verre_biere1">Bière 25cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere1">0</span>
+            </div>
         </div>
-        <div>
-            <label for="Verre_biere2">Bière 33cl</label>
-            <span id="Verre_biere2">0</span>
-        </div> 
-        <div> 
-            <label for="Verre_biere3">Bière 50cl</label>
-            <span id="Verre_biere3">0</span>
+        <div id="Biere2" class="div_verre">
+            <div class="verre" id="biere2">
+                <label for="Verre_biere2">Bière 33cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere2">0</span>
+            </div> 
         </div>
-        <div id="vr">
-            <label for="VR">Verre de Vin Rouge</label>
-            <span id="VR">0</span>
+        <div id="Biere3" class="div_verre">
+            <div class="verre" id="biere3"> 
+                <label for="Verre_biere3">Bière 50cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere3">0</span>
+            </div>
         </div>
-        <div id="vb">
-            <label for="VB">Verre de Vin Blanc</label>
-            <span id="VB">0</span>
+        <div id="verre_rouge" class="div_verre">
+            <div class="verre" id="vr">
+                <label for="VR">Verre de Vin Rouge</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VR">0</span>
+            </div>
         </div>
-        <div id="vro">
-            <label for="VRO">Verre de Rosée</label>
-            <span id="VRO">0</span>
+        <div id="verre_blanc" class="div_verre">
+            <div class="verre" id="vb">
+                <label for="VB">Verre de Vin Blanc</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VB">0</span>
+            </div>
         </div>
-        <div id="cChampagne">
-            <label for="Verre_Champagne">Champagne</label>
-            <span id="Verre_Champagne">0</span>
+        <div id="verre_rosee" class="div_verre">
+            <div class="verre" id="vro">
+                <label for="VRO">Verre de Rosée</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VRO">0</span>
+            </div>
         </div>
-        <div id="Yager">
-            <label for="Yager_Boob">Yager</label>
-            <span id="Yager_Boob">0</span>
+        <div id="verre_champagne" class="div_verre">
+            <div class="verre" id="Champagne">
+                <label for="Verre_Champagne">Champagne</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Champagne">0</span>
+            </div>
         </div>
-        <div id="Sky">
-            <label for="Sky_Coca">Sky</label>
-            <span id="Sky_Coca">0</span>
+        <div id="yager" class="div_verre">
+            <div class="verre" id="Yager">
+                <label for="Yager_Boob">Yager</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Yager_Boob">0</span>
+            </div>
         </div>
-        <div id="Mojito">
-            <label for="Verre_Mojito">Mojito</label>
-            <span id="Verre_Mojito">0</span>
+        <div id="sky" class="div_verre">
+            <div class="verre" id="Sky">
+                <label for="Sky_Coca">Sky</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Sky_Coca">0</span>
+            </div>
         </div>
-        <div id="Sexe_Beach">
-            <label for="Verre_Sexe">Sexe on the Beach</label>
-            <span id="Verre_Sexe">0</span>
+        <div id="mojitio" class="div_verre">
+            <div class="verre" id="Mojito">
+                <label for="Verre_Mojito">Mojito</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Mojito">0</span>
+            </div>
         </div>
-        <div id="Margarita">
-            <label for="Verre_Margarita">Margarita</label>
-            <span id="Verre_Margarita">0</span>
+        <div id="Sexe" class="div_verre">
+            <div class="verre" id="Sexe_Beach">
+                <label for="Verre_Sexe">Sexe on the Beach</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Sexe">0</span>
+            </div>
         </div>
-        <div id="Monaco">
-            <label for="Verre_Monaco">Monaco</label>
-            <span id="Verre_Monaco">0</span>
+        <div id="margarita" class="div_verre">
+            <div class="verre" id="Margarita">
+                <label for="Verre_Margarita">Margarita</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Margarita">0</span>
+            </div>
         </div>
-        <div id="Pina_Colada">
-            <label for="Verre_Pina">Pina Colada</label>
-            <span id="Verre_Pina">0</span>
+        <div id="monaco" class="div_verre">
+            <div class="verre" id="Monaco">
+                <label for="Verre_Monaco">Monaco</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Monaco">0</span>
+            </div>
         </div>
-        <div id="Blood_Marry">
-            <label for="Verre_Blood">Blood Marry</label>
-            <span id="Verre_Blood">0</span>
+        <div id="Pina" class="div_verre">
+            <div class="verre" id="Pina_Colada">
+                <label for="Verre_Pina">Pina Colada</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Pina">0</span>
+            </div>
         </div>
-        <div id="Martini">
-            <label for="Verre_Martini">Martini</label>
-            <span id="Verre_Martini">0</span>
+        <div id="Blood" class="div_verre">
+            <div class="verre" id="Blood_Marry">
+                <label for="Verre_Blood">Blood Marry</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Blood">0</span>
+            </div>
         </div>
-        <div id="Ricard">
-            <label for="Verre_Ricard">Ricard</label>
-            <span id="Verre_Ricard">0</span>
+        <div id="martini" class="div_verre">
+            <div class="verre" id="Martini">
+                <label for="Verre_Martini">Martini</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Martini">0</span>
+            </div>
         </div>
-        <div id="Shot1">
-            <label for="Shot_L">Shot léger</label>
-            <span id="Shot_L">0</span>
+        <div id="ricard" class="div_verre">
+            <div class="verre" id="Ricard">
+                <label for="Verre_Ricard">Ricard</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Ricard">0</span>
+            </div>    
         </div>
-        <div id="Shot2">
-            <label for="Shot_M">Shot moyen</label>
-            <span id="Shot_M">0</span>
+        <div id="shot1" class="div_verre">
+            <div class="verre" id="Shot1">
+                <label for="Shot_L">Shot léger</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_L">0</span>
+            </div>
         </div>
-        <div id="Shot3">
-            <label for="Shot_F">Shot fort</label>
-            <span id="Shot_F">0</span>
+        <div id="shot2" class="div_verre">
+            <div class="verre" id="Shot2">
+                <label for="Shot_M">Shot moyen</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_M">0</span>
+            </div>
+        </div>
+        <div id="shot3" class="div_verre">
+            <div class="verre" id="Shot3">
+                <label for="Shot_F">Shot fort</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_F">0</span>
+            </div>
         </div>
     </div>
 
