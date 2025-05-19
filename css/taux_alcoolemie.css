@@ -101,7 +101,7 @@ select, input, button {
     left: 50%;
     transform: translateX(-50%);
     padding: 8px 16px;
-    background-color: #b22222;
+    background-color: green;
     color: white;
     border-radius: 5px;
     z-index: 1000;
@@ -111,6 +111,15 @@ select, input, button {
     min-width: 250px;
     font-size: 0.9em;
 }
+
+.message-taux.safe {
+    background-color: #28a745; /* Vert */
+}
+
+.message-taux.danger {
+    background-color: #dc3545; /* Rouge */
+}
+
 
 button {
     background-color: #b22222;

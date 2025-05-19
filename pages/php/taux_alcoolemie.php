@@ -552,7 +552,17 @@
 
         let mess_taux = document.createElement("div");
         mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-        mess_taux.className = "message-taux"
+        mess_taux.className = "message-taux";
+
+        // Appliquer la classe safe ou danger
+        if (taux < 0.25) {
+            mess_taux.classList.add('safe');
+        } 
+        
+        else {
+            mess_taux.classList.add('danger');
+        }
+
         document.body.appendChild(mess_taux);
 
         intervalId = setInterval(() => {
@@ -565,8 +575,9 @@
                 else {
                     mess_taux = document.createElement("div");
                     mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-                    document.body.appendChild(mess_taux);;
+                    document.body.appendChild(mess_taux);
                 }
+
             }
         }, 3600000); //toute les heures
         document.getElementById("taux").textContent = taux.toFixed(3);
