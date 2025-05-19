@@ -17,6 +17,7 @@
             verifierBiere(); // Affiche correctement le champ au chargement
             loadFromCookie();
             affiche_data();
+            updateBeerGlass(cookieData.taux);
         };
         // Sauvegarder dans un cookie
         function saveToCookie() {
@@ -268,6 +269,14 @@
                 <span id="Shot_F">0</span>
             </div>
         </div>
+    </div>
+
+    <div class="beer-container">
+        <div class="beer-glass">
+            <div class="beer-foam"></div>
+            <div class="beer-liquid" id="beer-liquid"></div>
+        </div>
+        <div class="beer-base"></div>
     </div>
 
     <br><br>
@@ -549,7 +558,7 @@
                 saveToCookie();
                 break;
         };
-
+        updateBeerGlass(taux)
         let mess_taux = document.createElement("div");
         mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
         mess_taux.className = "message-taux";
@@ -582,6 +591,29 @@
         }, 3600000); //toute les heures
         document.getElementById("taux").textContent = taux.toFixed(3);
     }
+
+    function updateBeerGlass(taux) {
+
+        const beerLiquid = document.getElementById('beer-liquid');
+        if (!beerLiquid) return;
+
+        const maxTaux = 2.0; 
+        const maxHeight = 80; 
+
+        let fillPercentage = (taux / maxTaux) * maxHeight; // Utilisez taux
+        fillPercentage = Math.min(fillPercentage, maxHeight);
+
+        beerLiquid.style.height = fillPercentage + '%';
+
+        if (taux < 0.25) {
+            beerLiquid.style.background = 'green';
+        } else if (taux < 0.5) {
+            beerLiquid.style.background = 'orange';
+        } else {
+            beerLiquid.style.background = 'red';
+        }
+    }
+
 
     function resetVerre(){
         Verre_biere1 = 0;
@@ -631,6 +663,7 @@
 
     function resetTaux(){
         taux = 0;
+        updateBeerGlass(0);
         
         const messages = document.querySelectorAll(".message-taux");
         messages.forEach(message => message.remove());
