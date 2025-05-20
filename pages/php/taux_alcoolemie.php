@@ -11,7 +11,7 @@
     <h1 id="titre">Taux d'alcool dans le sang</h1>
     
     <script>
-        alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximative");
+        alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximatif");
         window.onload = function () {
             poids();
             verifierBiere();
@@ -43,6 +43,7 @@
                     if (now - cookieData.timestamp < 86400000) { // 24h en ms
                         taux = cookieData.taux;
                         updateBeerGlass(taux);
+                        updateChart(taux);
                         Object.keys(cookieData.Verres).forEach(key => {
                             Verres[key] = cookieData.Verres[key];
                         });
@@ -186,7 +187,7 @@
             </div>
         </div>
         <div id="Sexe_Beach">
-            <label for="Verre_Sexe">Sexe on the Beach</label>
+            <label for="Verre_Sexe">Sex on the Beach</label>
             <span id="Verre_Sexe">0</span>
         </div>
         <div id="margarita" class="div_verre">
@@ -271,11 +272,15 @@
         <div class="beer-base"></div>
     </div>
 
+    <div id="graph-container">
+        <canvas id="alcoholChart"></canvas>
+    </div>
+
     <br><br>
     <button onclick="calculerTaux()">Ajouter</button>
     <button onclick="resetTaux(); resetVerre()">Reset</button>
     <button id="supp_cookie" onclick="supp_cookie()">Reset Cookies</button>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     let intervalId = null;
     let taux = 0;
@@ -300,6 +305,10 @@
     let shot1 = 0;
     let shot2 = 0;
     let shot3 = 0;
+    let chart = null;
+    let timeData = [];
+    let alcoholData = [];
+    let startTime = null;
     
     const Verres = {
         Verre_biere1, Verre_biere2, Verre_biere3, VR, VB, VRO,
@@ -565,12 +574,15 @@
         if (taux < 0.25) {
             mess_taux.classList.add('safe');
         } 
-        
+
         else {
             mess_taux.classList.add('danger');
+            alert("Attention vous ne pouvez plus conduire");
         }
 
         document.body.appendChild(mess_taux);
+
+        updateChart(taux);
 
         intervalId = setInterval(() => {
             if (taux > 0) {
@@ -583,6 +595,7 @@
                     mess_taux = document.createElement("div");
                     mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
                     document.body.appendChild(mess_taux);
+                    updateChart(taux);
                 }
 
             }
@@ -659,9 +672,17 @@
         saveToCookie();
     }
 
-    function resetTaux(){
+    function resetTaux() {
         taux = 0;
+        timeData = [];
+        alcoholData = [];
+        startTime = null;
         updateBeerGlass(0);
+        
+        if (chart) {
+            chart.destroy();
+            chart = null;
+        }
         
         const messages = document.querySelectorAll(".message-taux");
         messages.forEach(message => message.remove());
@@ -681,6 +702,94 @@
         mess_taux.textContent = "Vous venez de reinitialisé votre cookie";
         document.body.appendChild(mess_taux);
     
+    }
+
+    function initChart() {
+        const ctx = document.getElementById('alcoholChart').getContext('2d');
+        
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeData,
+                datasets: [{
+                    label: 'Taux d\'alcoolémie (g/L)',
+                    data: alcoholData,
+                    borderColor: '#b22222',
+                    backgroundColor: 'rgba(178, 34, 34, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Taux (g/L)'
+                        },
+                        max: 2.0
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Temps (minutes)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                yMin: 0.25,
+                                yMax: 0.25,
+                                borderColor: 'orange',
+                                borderWidth: 2,
+                                borderDash: [6, 6],
+                                label: {
+                                    content: 'Limite légale (0.25 g/L)',
+                                    enabled: true,
+                                    position: 'right'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateChart(newTaux) {
+        if (!startTime) {
+            startTime = new Date();
+            timeData.push(0);
+        } else {
+            const now = new Date();
+            const elapsedMinutes = Math.floor((now - startTime) / 60000);
+            timeData.push(elapsedMinutes);
+        }
+        
+        alcoholData.push(parseFloat(newTaux.toFixed(2)));
+        
+        // Limiter le nombre de points à afficher pour éviter la surcharge
+        if (timeData.length > 20) {
+            timeData.shift();
+            alcoholData.shift();
+        }
+        
+        if (!chart) {
+            initChart();
+        } else {
+            chart.data.labels = timeData;
+            chart.data.datasets[0].data = alcoholData;
+            chart.update();
+        }
     }
 
     const cookieRow = document.cookie.split('; ').find(row => row.startsWith('alcoolData='));
