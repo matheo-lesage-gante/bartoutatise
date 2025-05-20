@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2025 at 12:40 AM
+-- Generation Time: May 20, 2025 at 08:17 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -456,6 +456,20 @@ CREATE TABLE `bar` (
   `Horaire` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `bar`
+--
+
+INSERT INTO `bar` (`Id_bar`, `Nom`, `Adresse`, `Avis`, `Horaire`) VALUES
+(1, 'Verde', '21 Rue Masséna, Lille', 0, 'Mar-Sam: 22h-00h'),
+(2, 'SEVEN', '124 Rue Solférino, Lille, France', 0, 'Lun-Sam: 19h-02h'),
+(3, 'PDR', '43 Rue Masséna, Lille', 0, 'Dim-Mer: 10h-01h, Jeu-Ven: 10h-02h'),
+(4, 'PDD', '48 Rue Solférino, Lille', 0, 'Lun-Jeu: 15h-00h, Ven: 15h-01h, Sam: 14h-01h, Dim: 14h-22h'),
+(5, 'Oasis', '1 Av. Mathias Delobel, Lille', 0, 'Lun-Sam: 10h30-23h30, Dim: 10h30-21h'),
+(6, 'L’Imprévu', '18 Rue Masséna, Lille', 0, 'Dim-Mer: 15h-01h, Jeu-Sam: 15h-02h'),
+(7, 'La Faluche', '39 Rue du Port, Lille', 0, 'Lun: 10h-21h, Mar: 10h-00h, Mer: 10h-21h, Jeu: 10h-00h, Ven: 10h-00h30'),
+(8, 'Aquarium', '29 Rue Ernest Deconynck, Lille', 0, 'Dim-Mer: 18h-01h, Jeu-Ven: 18h-02h');
+
 -- --------------------------------------------------------
 
 --
@@ -497,7 +511,8 @@ INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Admin`, `Ami1`, `Ami2`, `A
 (10, 'Greg07', 'greg07@example.com', 'mdpGreg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (11, 'Hana08', 'hana08@example.com', 'mdpHana', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, 'Ian09', 'ian09@example.com', 'mdpIan', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Julia10', 'julia10@example.com', 'mdpJulia', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(13, 'Julia10', 'julia10@example.com', 'mdpJulia', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'Admin', 'Admin@admin.com', 'admin', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -535,13 +550,13 @@ ALTER TABLE `avis`
 -- AUTO_INCREMENT for table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
