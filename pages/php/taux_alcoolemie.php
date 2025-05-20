@@ -165,13 +165,9 @@
                 <span id="Verre_Champagne">0</span>
             </div>
         </div>
-        <div id="yager" class="div_verre">
-            <div class="verre" id="Jagger">
-                <label for="Jagger_Bomb">Jagger</label>
-            </div>
-            <div class="nb_verre">
-                <span id="Jagger_Bomb">0</span>
-            </div>
+        <div id="Yager">
+            <label for="Yager_Boob">Yager</label>
+            <span id="Yager_Boob">0</span>
         </div>
         <div id="sky" class="div_verre">
             <div class="verre" id="Sky">
@@ -189,13 +185,9 @@
                 <span id="Verre_Mojito">0</span>
             </div>
         </div>
-        <div id="Sex" class="div_verre">
-            <div class="verre" id="Sex_Beach">
-                <label for="Verre_Sex">Sex on the Beach</label>
-            </div>
-            <div class="nb_verre">
-                <span id="Verre_Sex">0</span>
-            </div>
+        <div id="Sexe_Beach">
+            <label for="Verre_Sexe">Sexe on the Beach</label>
+            <span id="Verre_Sexe">0</span>
         </div>
         <div id="margarita" class="div_verre">
             <div class="verre" id="Margarita">
