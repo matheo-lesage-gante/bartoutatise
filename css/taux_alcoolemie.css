@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Empêche le défilement */
+    /*overflow: hidden;*/
     box-sizing: border-box;
 }
 
@@ -180,6 +180,24 @@ button:hover {
     width: 100%;
     height: 0%;
     transition: height 0.8s ease;
+}
+
+#graph-container {
+    position: relative; /* Changé de fixed à relative */
+    margin: 20px auto; /* Centrage horizontal */
+    width: 70%;
+    height: 450px;
+    background-color: rgba(248, 244, 230, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed #3a2810;
+    z-index: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#alcoholChart {
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* Media Queries pour les petits écrans */
