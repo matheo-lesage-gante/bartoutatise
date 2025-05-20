@@ -17,6 +17,7 @@
             verifierBiere(); // Affiche correctement le champ au chargement
             loadFromCookie();
             affiche_data();
+            updateBeerGlass(cookieData.taux);
         };
         // Sauvegarder dans un cookie
         function saveToCookie() {
@@ -62,10 +63,10 @@
             document.getElementById("VB").textContent = VB;
             document.getElementById("VRO").textContent = VRO;
             document.getElementById("Verre_Champagne").textContent = Verre_Champagne;
-            document.getElementById("Yager_Boob").textContent = Yager_Boob;
+            document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
             document.getElementById("Sky_Coca").textContent = Sky_Coca;
             document.getElementById("Verre_Mojito").textContent = Verre_Mojito;
-            document.getElementById("Verre_Sexe").textContent = Verre_Sexe;
+            document.getElementById("Verre_Sex").textContent = Verre_Sex;
             document.getElementById("Verre_Margarita").textContent = Verre_Margarita;
             document.getElementById("Verre_Monaco").textContent = Verre_Monaco;
             document.getElementById("Verre_Pina").textContent = Verre_Pina;
@@ -87,10 +88,10 @@
         <option value="option5">Verre de Vin blanc</option>
         <option value="option6">Verre de Rosé</option>
         <option value="option7">Verre de Champagne</option>
-        <option value="option8">Yager boob</option>
+        <option value="option8">Jagger boob</option>
         <option value="option9">sky coca</option>
         <option value="option10">Mojito</option>
-        <option value="option11">Sexe on the Beach</option>
+        <option value="option11">Sex on the Beach</option>
         <option value="option12">Margarita</option>
         <option value="option13">Monaco</option>
         <option value="option14">Pina Colada</option>
@@ -108,90 +109,178 @@
     </div>
     
     <div id="List_Verre">
-        <div id="biere1">
-            <label for="Verre_biere1">Bière 25cl</label>
-            <span id="Verre_biere1">0</span>
+        <div id="Biere1" class="div_verre">
+            <div class="verre" id="biere1">
+                <label for="Verre_biere1">Bière 25cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere1">0</span>
+            </div>
         </div>
-        <div>
-            <label for="Verre_biere2">Bière 33cl</label>
-            <span id="Verre_biere2">0</span>
-        </div> 
-        <div> 
-            <label for="Verre_biere3">Bière 50cl</label>
-            <span id="Verre_biere3">0</span>
+        <div id="Biere2" class="div_verre">
+            <div class="verre" id="biere2">
+                <label for="Verre_biere2">Bière 33cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere2">0</span>
+            </div> 
         </div>
-        <div id="vr">
-            <label for="VR">Verre de Vin Rouge</label>
-            <span id="VR">0</span>
+        <div id="Biere3" class="div_verre">
+            <div class="verre" id="biere3"> 
+                <label for="Verre_biere3">Bière 50cl</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_biere3">0</span>
+            </div>
         </div>
-        <div id="vb">
-            <label for="VB">Verre de Vin Blanc</label>
-            <span id="VB">0</span>
+        <div id="verre_rouge" class="div_verre">
+            <div class="verre" id="vr">
+                <label for="VR">Verre de Vin Rouge</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VR">0</span>
+            </div>
         </div>
-        <div id="vro">
-            <label for="VRO">Verre de Rosée</label>
-            <span id="VRO">0</span>
+        <div id="verre_blanc" class="div_verre">
+            <div class="verre" id="vb">
+                <label for="VB">Verre de Vin Blanc</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VB">0</span>
+            </div>
         </div>
-        <div id="cChampagne">
-            <label for="Verre_Champagne">Champagne</label>
-            <span id="Verre_Champagne">0</span>
+        <div id="verre_rosee" class="div_verre">
+            <div class="verre" id="vro">
+                <label for="VRO">Verre de Rosée</label>
+            </div>
+            <div class="nb_verre">
+                <span id="VRO">0</span>
+            </div>
         </div>
-        <div id="Yager">
-            <label for="Yager_Boob">Yager</label>
-            <span id="Yager_Boob">0</span>
+        <div id="verre_champagne" class="div_verre">
+            <div class="verre" id="Champagne">
+                <label for="Verre_Champagne">Champagne</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Champagne">0</span>
+            </div>
         </div>
-        <div id="Sky">
-            <label for="Sky_Coca">Sky</label>
-            <span id="Sky_Coca">0</span>
+        <div id="yager" class="div_verre">
+            <div class="verre" id="Jagger">
+                <label for="Jagger_Bomb">Jagger</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Jagger_Bomb">0</span>
+            </div>
         </div>
-        <div id="Mojito">
-            <label for="Verre_Mojito">Mojito</label>
-            <span id="Verre_Mojito">0</span>
+        <div id="sky" class="div_verre">
+            <div class="verre" id="Sky">
+                <label for="Sky_Coca">Sky</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Sky_Coca">0</span>
+            </div>
         </div>
-        <div id="Sexe_Beach">
-            <label for="Verre_Sexe">Sexe on the Beach</label>
-            <span id="Verre_Sexe">0</span>
+        <div id="mojitio" class="div_verre">
+            <div class="verre" id="Mojito">
+                <label for="Verre_Mojito">Mojito</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Mojito">0</span>
+            </div>
         </div>
-        <div id="Margarita">
-            <label for="Verre_Margarita">Margarita</label>
-            <span id="Verre_Margarita">0</span>
+        <div id="Sex" class="div_verre">
+            <div class="verre" id="Sex_Beach">
+                <label for="Verre_Sex">Sex on the Beach</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Sex">0</span>
+            </div>
         </div>
-        <div id="Monaco">
-            <label for="Verre_Monaco">Monaco</label>
-            <span id="Verre_Monaco">0</span>
+        <div id="margarita" class="div_verre">
+            <div class="verre" id="Margarita">
+                <label for="Verre_Margarita">Margarita</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Margarita">0</span>
+            </div>
         </div>
-        <div id="Pina_Colada">
-            <label for="Verre_Pina">Pina Colada</label>
-            <span id="Verre_Pina">0</span>
+        <div id="monaco" class="div_verre">
+            <div class="verre" id="Monaco">
+                <label for="Verre_Monaco">Monaco</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Monaco">0</span>
+            </div>
         </div>
-        <div id="Blood_Marry">
-            <label for="Verre_Blood">Blood Marry</label>
-            <span id="Verre_Blood">0</span>
+        <div id="Pina" class="div_verre">
+            <div class="verre" id="Pina_Colada">
+                <label for="Verre_Pina">Pina Colada</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Pina">0</span>
+            </div>
         </div>
-        <div id="Martini">
-            <label for="Verre_Martini">Martini</label>
-            <span id="Verre_Martini">0</span>
+        <div id="Blood" class="div_verre">
+            <div class="verre" id="Blood_Marry">
+                <label for="Verre_Blood">Blood Marry</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Blood">0</span>
+            </div>
         </div>
-        <div id="Ricard">
-            <label for="Verre_Ricard">Ricard</label>
-            <span id="Verre_Ricard">0</span>
+        <div id="martini" class="div_verre">
+            <div class="verre" id="Martini">
+                <label for="Verre_Martini">Martini</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Martini">0</span>
+            </div>
         </div>
-        <div id="Shot1">
-            <label for="Shot_L">Shot léger</label>
-            <span id="Shot_L">0</span>
+        <div id="ricard" class="div_verre">
+            <div class="verre" id="Ricard">
+                <label for="Verre_Ricard">Ricard</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Verre_Ricard">0</span>
+            </div>    
         </div>
-        <div id="Shot2">
-            <label for="Shot_M">Shot moyen</label>
-            <span id="Shot_M">0</span>
+        <div id="shot1" class="div_verre">
+            <div class="verre" id="Shot1">
+                <label for="Shot_L">Shot léger</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_L">0</span>
+            </div>
         </div>
-        <div id="Shot3">
-            <label for="Shot_F">Shot fort</label>
-            <span id="Shot_F">0</span>
+        <div id="shot2" class="div_verre">
+            <div class="verre" id="Shot2">
+                <label for="Shot_M">Shot moyen</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_M">0</span>
+            </div>
+        </div>
+        <div id="shot3" class="div_verre">
+            <div class="verre" id="Shot3">
+                <label for="Shot_F">Shot fort</label>
+            </div>
+            <div class="nb_verre">
+                <span id="Shot_F">0</span>
+            </div>
         </div>
     </div>
 
+    <div class="beer-container">
+        <div class="beer-glass">
+            <div class="beer-foam"></div>
+            <div class="beer-liquid" id="beer-liquid"></div>
+        </div>
+        <div class="beer-base"></div>
+    </div>
+
     <br><br>
-    <button onclick="calculerTaux()">Calculer le taux</button>
+    <button onclick="calculerTaux()">Ajouter</button>
     <button onclick="resetTaux(); resetVerre()">Reset</button>
     <button id="supp_cookie" onclick="supp_cookie()">Reset Cookies</button>
 
@@ -205,11 +294,11 @@
     let VB = 0;
     let VRO = 0;
     let Verre_Champagne = 0;
-    let Yager_Boob = 0;
+    let Jagger_Bomb = 0;
     let Sky_Coca = 0;
     let Verre_Mojito = 0;
     let Verre_Sky = 0;
-    let Verre_Sexe = 0;
+    let Verre_Sex = 0;
     let Verre_Margarita = 0;
     let Verre_Monaco = 0;
     let Verre_Pina = 0;
@@ -222,7 +311,7 @@
     
     const Verres = {
         Verre_biere1, Verre_biere2, Verre_biere3, VR, VB, VRO,
-        Verre_Champagne, Yager_Boob, Sky_Coca, Verre_Mojito, Verre_Sexe,
+        Verre_Champagne, Jagger_Bomb, Sky_Coca, Verre_Mojito, Verre_Sex,
         Verre_Margarita, Verre_Monaco, Verre_Pina, Verre_Blood,
         Verre_Martini, Verre_Ricard, shot1, shot2, shot3
     };
@@ -252,6 +341,7 @@
         inputPoids.max = '200';
         inputPoids.step = '0.1';
         inputPoids.required = true;
+        poid = false;
 
         validerBtn.textContent = 'Valider';
         validerBtn.onclick = function() {
@@ -262,6 +352,7 @@
             if(poids > 0){
                 divPoids.remove();
                 alert(`Poids enregistré : ${poids} kg`);
+                poid = true;
             }
         
             else{
@@ -284,6 +375,10 @@
 
 
     function calculerTaux() {
+        if (!poid) {
+            alert("Veuillez entrer votre poids avant de continuer.");
+            return;
+        }
         let sexe = "M";
         let coeff_sexe = (sexe === "M") ? 0.68 : 0.55;
         let degre;
@@ -365,11 +460,11 @@
                 saveToCookie();
                 break;
 
-            case "option8" : //Yager
+            case "option8" : //Jagger
                 alcoolPur = 28;
                 taux += alcoolPur / (poids * coeff_sexe);
-                Yager_Boob += 1;
-                document.getElementById("Yager_Boob").textContent = Yager_Boob;
+                Jagger_Bomb += 1;
+                document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
                 saveToCookie();
                 break;
 
@@ -389,11 +484,11 @@
                 saveToCookie();
                 break;
 
-            case "option11" : //Sexe on the Beach
+            case "option11" : //Sex on the Beach
                 alcoolPur = 19.2;
                 taux += alcoolPur / (poids * coeff_sexe);
-                Verre_Sexe += 1;
-                document.getElementById("Verre_Sexe").textContent = Verre_Sexe;
+                Verre_Sex += 1;
+                document.getElementById("Verre_Sex").textContent = Verre_Sex;
                 saveToCookie();
                 break;
 
@@ -469,10 +564,20 @@
                 saveToCookie();
                 break;
         };
-
+        updateBeerGlass(taux)
         let mess_taux = document.createElement("div");
         mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-        mess_taux.className = "message-taux"
+        mess_taux.className = "message-taux";
+
+        // Appliquer la classe safe ou danger
+        if (taux < 0.25) {
+            mess_taux.classList.add('safe');
+        } 
+        
+        else {
+            mess_taux.classList.add('danger');
+        }
+
         document.body.appendChild(mess_taux);
 
         intervalId = setInterval(() => {
@@ -485,12 +590,36 @@
                 else {
                     mess_taux = document.createElement("div");
                     mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-                    document.body.appendChild(mess_taux);;
+                    document.body.appendChild(mess_taux);
                 }
+
             }
         }, 3600000); //toute les heures
         document.getElementById("taux").textContent = taux.toFixed(3);
     }
+
+    function updateBeerGlass(taux) {
+
+        const beerLiquid = document.getElementById('beer-liquid');
+        if (!beerLiquid) return;
+
+        const maxTaux = 2.0; 
+        const maxHeight = 80; 
+
+        let fillPercentage = (taux / maxTaux) * maxHeight; // Utilisez taux
+        fillPercentage = Math.min(fillPercentage, maxHeight);
+
+        beerLiquid.style.height = fillPercentage + '%';
+
+        if (taux < 0.25) {
+            beerLiquid.style.background = 'green';
+        } else if (taux < 0.5) {
+            beerLiquid.style.background = 'orange';
+        } else {
+            beerLiquid.style.background = 'red';
+        }
+    }
+
 
     function resetVerre(){
         Verre_biere1 = 0;
@@ -500,11 +629,11 @@
         VB = 0;
         VRO = 0;
         Verre_Champagne = 0;
-        Yager_Boob = 0;
+        Jagger_Bomb = 0;
         Sky_Coca = 0;
         Verre_Mojito = 0;
         Verre_Sky = 0;
-        Verre_Sexe = 0;
+        Verre_Sex = 0;
         Verre_Margarita = 0;
         Verre_Monaco = 0;
         Verre_Pina = 0;
@@ -522,10 +651,10 @@
         document.getElementById("VB").textContent = "0";
         document.getElementById("VRO").textContent = "0";
         document.getElementById("Verre_Champagne").textContent = "0";
-        document.getElementById("Yager_Boob").textContent = "0";
+        document.getElementById("Jagger_Bomb").textContent = "0";
         document.getElementById("Sky_Coca").textContent = "0";
         document.getElementById("Verre_Mojito").textContent = "0";
-        document.getElementById("Verre_Sexe").textContent = "0";
+        document.getElementById("Verre_Sex").textContent = "0";
         document.getElementById("Verre_Margarita").textContent = "0";
         document.getElementById("Verre_Monaco").textContent = "0";
         document.getElementById("Verre_Pina").textContent = "0";
@@ -540,6 +669,7 @@
 
     function resetTaux(){
         taux = 0;
+        updateBeerGlass(0);
         
         const messages = document.querySelectorAll(".message-taux");
         messages.forEach(message => message.remove());
