@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2025 at 02:46 AM
+-- Generation Time: May 20, 2025 at 03:19 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -181,9 +181,40 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 CREATE TABLE `bar` (
   `Id_bar` int(10) NOT NULL,
   `Nom` varchar(64) NOT NULL,
-  `Avis` int(1) NOT NULL,
-  `Description` int(255) NOT NULL
+  `Avis` int(1) DEFAULT NULL,
+  `Description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bar`
+--
+
+INSERT INTO `bar` (`Id_bar`, `Nom`, `Avis`, `Description`) VALUES
+(1, 'LE CARTEL', NULL, 'Bar branché avec ambiance latino et cocktails exotiques.'),
+(2, 'LE KOLOR BAR', NULL, 'Bar coloré proposant des soirées à thème et DJ sets.'),
+(3, 'BERNADETTE', NULL, 'Petit bar cosy à l’ambiance rétro et chaleureuse.'),
+(4, 'CAFE OZ', NULL, 'Bar australien populaire avec retransmissions sportives.'),
+(5, 'LE BISTROT DE ST SO', NULL, 'Bistrot animé près de la gare avec grande terrasse.'),
+(6, 'LE MADRE', NULL, 'Bar à tapas avec ambiance espagnole et musique live.'),
+(7, 'LA BASE ARRIERE', NULL, 'Bar alternatif situé dans un ancien entrepôt.'),
+(8, 'L ESPRIT CHUPITOS', NULL, 'Spécialiste des shooters et soirées étudiantes.'),
+(9, 'LE PRIVILEGE', NULL, 'Bar chic avec ambiance lounge et cocktails signature.'),
+(10, 'L IRLANDAIS', NULL, 'Pub irlandais avec bières artisanales et concerts.'),
+(11, 'O QAUI', NULL, 'Bar au bord de l’eau avec vue panoramique.'),
+(12, 'LE FRIDGE', NULL, 'Bar caché derrière une fausse chambre froide.'),
+(13, 'LA PLANQUE', NULL, 'Bar secret à l’ambiance speakeasy et lumière tamisée.'),
+(14, 'PHARMACIE BAR', NULL, 'Décor vintage de pharmacie avec cocktails originaux.'),
+(15, 'KOKALAN', NULL, 'Bar exotique avec ambiance tropicale et déco boisée.'),
+(16, 'BASE CAMP', NULL, 'Bar convivial pour les amateurs d’aventure et d’outdoor.'),
+(17, 'LA PLAGE', NULL, 'Bar avec sable au sol et transats pour ambiance estivale.'),
+(18, 'BISTROT DE LA REINE', NULL, 'Bar élégant avec sélection de vins raffinés.'),
+(19, 'LOBBY', NULL, 'Bar d’hôtel moderne avec ambiance feutrée.'),
+(20, 'SPEAKEASY', NULL, 'Bar clandestin inspiré des années 20.'),
+(21, 'BARBEROUSSE', NULL, 'Bar pirate avec rhums arrangés et déco marine.'),
+(22, 'TCHA TCHA', NULL, 'Bar dansant avec ambiance latino et salsa.'),
+(23, 'CANTINA', NULL, 'Bar mexicain avec tacos et margaritas maison.'),
+(24, 'ZEBULAN', NULL, 'Bar futuriste avec lumières néon et cocktails moléculaires.'),
+(25, 'MAGNUM', NULL, 'Bar à champagne et soirées exclusives.');
 
 -- --------------------------------------------------------
 
@@ -258,7 +289,7 @@ ALTER TABLE `avis`
 -- AUTO_INCREMENT for table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `profil`
