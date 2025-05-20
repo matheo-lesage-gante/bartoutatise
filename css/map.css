@@ -1,0 +1,51 @@
+body { 
+    margin: 0; 
+    font-family: sans-serif; 
+    background-image: url(../img/map/carte.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.controls {
+    position: fixed;
+	width: 100%;
+	text-align: center;
+}
+/******************************** BOUTON ********************************
+.btn{
+	display: inline-block;
+	box-shadow: none;
+	appearance: none;
+	border: 0;
+	outline: 0;
+	background-color: #f7b527;
+	height: 45px;
+	line-height: 42px;
+	padding: 0 30px;
+	font-size: 20px;
+	border-radius: 30px;
+	color: rgb(40, 45, 50);
+	cursor: pointer;
+	transition: all .5s;
+	transition-timing-function: cubic-bezier(.2, 3, .4, 1);
+	user-select: none;
+	
+	&:hover{
+		transform: scale(1.1, 1.1);
+	}
+	
+	&:active{
+		transform: scale(1.05, 1.05);
+	}
+}
+**/
+#map { 
+    height: 80vh; 
+    width: 100%; 
+    max-width: 100em;
+    padding: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
