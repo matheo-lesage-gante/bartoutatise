@@ -101,7 +101,6 @@ select, input, button {
     left: 50%;
     transform: translateX(-50%);
     padding: 8px 16px;
-    background-color: green;
     color: white;
     border-radius: 5px;
     z-index: 1000;
@@ -120,6 +119,13 @@ select, input, button {
     background-color: #dc3545; /* Rouge */
 }
 
+.message-taux.renit {
+    background-color: blue; /* Rouge */
+}
+
+.message-taux.renit_cookie {
+    background-color: purple; /* Rouge */
+}
 
 button {
     background-color: #b22222;

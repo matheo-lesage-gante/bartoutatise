@@ -43,6 +43,7 @@
                     if (now - cookieData.timestamp < 86400000) { // 24h en ms
                         taux = cookieData.taux;
                         updateBeerGlass(taux);
+                        update_fond(taux)
                         updateChart(taux);
                         Object.keys(cookieData.Verres).forEach(key => {
                             Verres[key] = cookieData.Verres[key];
@@ -565,25 +566,16 @@
                 saveToCookie();
                 break;
         };
-        updateBeerGlass(taux)
+
+        removeOldMessages();
         let mess_taux = document.createElement("div");
         mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
         mess_taux.className = "message-taux";
 
-        // Appliquer la classe safe ou danger
-        if (taux < 0.25) {
-            mess_taux.classList.add('safe');
-        } 
-
-        else {
-            mess_taux.classList.add('danger');
-            alert("Attention vous ne pouvez plus conduire");
-        }
-
         document.body.appendChild(mess_taux);
-
         updateChart(taux);
-
+        update_fond(taux);
+ 
         intervalId = setInterval(() => {
             if (taux > 0) {
                 taux = Math.max(0, taux - 0.15);
@@ -592,16 +584,34 @@
                     alert("Vous n'avez plus d'alcool détectable dans le sang.");
                 }
                 else {
+                    removeOldMessages();
                     mess_taux = document.createElement("div");
                     mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
                     document.body.appendChild(mess_taux);
+                    update_fond(taux);
                     updateChart(taux);
                 }
-
             }
-        }, 3600000); //toute les heures
+        }, 3600000);
         document.getElementById("taux").textContent = taux.toFixed(3);
     }
+
+    function update_fond(taux) {
+        // Trouver le dernier message-taux créé
+        const messages = document.querySelectorAll(".message-taux");
+        if (messages.length === 0) return;
+        
+        const dernierMessage = messages[messages.length - 1];
+        
+        // Appliquer les classes en fonction du taux
+        dernierMessage.classList.remove('danger', 'safe');
+        
+        if (taux < 0.25) {
+            dernierMessage.classList.add('safe');
+        } else {
+            dernierMessage.classList.add('danger');
+        }
+    }      
 
     function updateBeerGlass(taux) {
 
@@ -678,7 +688,8 @@
         alcoholData = [];
         startTime = null;
         updateBeerGlass(0);
-        
+        removeOldMessages();
+
         if (chart) {
             chart.destroy();
             chart = null;
@@ -690,6 +701,7 @@
         let mess_taux = document.createElement("div");
         mess_taux.textContent = "Votre taux vient d'être réinitialisé à 0 g/l";
         mess_taux.className = "message-taux";
+        mess_taux.classList.add('renit');
         document.body.appendChild(mess_taux);
         saveToCookie();
     }
@@ -697,11 +709,22 @@
     function supp_cookie(){
         const expires = new Date(0).toUTCString();
         document.cookie = `alcoolData=; expires=${expires}; path=/`;
+        removeOldMessages();
         const mess_taux = document.createElement("div");
         mess_taux.className = "message-taux";
+        mess_taux.classList.add('renit_cookie');
         mess_taux.textContent = "Vous venez de reinitialisé votre cookie";
         document.body.appendChild(mess_taux);
     
+    }
+
+    function removeOldMessages() {
+        const messages = document.querySelectorAll(".message-taux");
+        if (messages.length > 0) {
+            // Supprimer tous sauf le dernier si vous voulez garder une trace
+            // Ou supprimer tous si vous voulez n'avoir qu'un seul message à la fois
+            messages.forEach(message => message.remove());
+        }
     }
 
     function initChart() {
