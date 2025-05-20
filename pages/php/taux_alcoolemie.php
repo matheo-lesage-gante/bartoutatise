@@ -14,10 +14,9 @@
         alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximative");
         window.onload = function () {
             poids();
-            verifierBiere(); // Affiche correctement le champ au chargement
+            verifierBiere();
             loadFromCookie();
             affiche_data();
-            updateBeerGlass(cookieData.taux);
         };
         // Sauvegarder dans un cookie
         function saveToCookie() {
@@ -43,6 +42,7 @@
                     const now = new Date().getTime();
                     if (now - cookieData.timestamp < 86400000) { // 24h en ms
                         taux = cookieData.taux;
+                        updateBeerGlass(taux);
                         Object.keys(cookieData.Verres).forEach(key => {
                             Verres[key] = cookieData.Verres[key];
                         });
