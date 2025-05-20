@@ -101,6 +101,6 @@ footer {
   cursor: pointer;
 }
 
-#voirPlusBtn:hover, #voirMoinsBtn:hover {
+#voirPlusBtn:hover, #voirMoinsBtn:hover{
   background: #e67e22;
 }

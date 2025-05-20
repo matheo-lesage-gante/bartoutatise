@@ -150,6 +150,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die();
 }
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Recherche de Gaulois</title>
+</head>
 
 <style>
     body {

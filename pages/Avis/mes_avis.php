@@ -204,17 +204,27 @@ $mesAvis = $stmtPerso->fetchAll(PDO::FETCH_ASSOC);
                 <option value="note" <?= $sort === 'note' ? 'selected' : '' ?>>Par potion magique (note)</option>
                 <option value="date" <?= $sort === 'date' ? 'selected' : '' ?>>Par fresque du druide (date)</option>
             </select>
-            <button type="submit">Chercher</button>
+            <button class="add-button"  type="submit">Chercher</button>
         </form>
 
         <?php if ($avisCommunaute): ?>
             <?php foreach ($avisCommunaute as $a): ?>
                 <div class="avis">
-                    <h3>
-                        <?= htmlspecialchars($a['Nom_bar']) ?>
-                        <span class="note">(<?= $a['note'] ?>/5 gourdes)</span>
-                        <span class="date-avis"><?= date('d/m/Y', strtotime($a['date_avis'])) ?></span>
-                    </h3>
+                <h3>
+                    <?= htmlspecialchars($a['Nom_bar']) ?>
+                    <span class="note">
+                        <?php 
+                        $note = (int)$a['note'];
+                        for ($i = 0; $i < $note; $i++) {
+                            echo '<img src="../../img/gourde.png" alt="gourde pleine" style="width:20px; height:auto; vertical-align:middle; margin-right:2px;">';
+                        }
+                        for ($i = $note; $i < 5; $i++) {
+                            echo '<img src="../../img/gourde_black.png" alt="gourde vide" style="width:20px; height:auto; vertical-align:middle; margin-right:2px;">';
+                        }
+                        ?>
+                    </span>
+                    <span class="date-avis"><?= date('d/m/Y', strtotime($a['date_avis'])) ?></span>
+                </h3>
                     <p><?= nl2br(htmlspecialchars($a['avis'])) ?></p>
                     <p><em>Signé par le gaulois <?= htmlspecialchars($a['Pseudo']) ?></em></p>
                 </div>
@@ -238,11 +248,21 @@ $mesAvis = $stmtPerso->fetchAll(PDO::FETCH_ASSOC);
         <?php if ($mesAvis): ?>
             <?php foreach ($mesAvis as $a): ?>
                 <div class="avis">
-                    <h3>
-                        <?= htmlspecialchars($a['Nom_bar']) ?>
-                        <span class="note">(<?= $a['note'] ?>/5 gourdes)</span>
-                        <span class="date-avis"><?= date('d/m/Y', strtotime($a['date_avis'])) ?></span>
-                    </h3>
+                <h3>
+                    <?= htmlspecialchars($a['Nom_bar']) ?>
+                    <span class="note">
+                        <?php 
+                        $note = (int)$a['note'];
+                        for ($i = 0; $i < $note; $i++) {
+                            echo '<img src="../../img/gourde.png" alt="gourde pleine" style="width:20px; height:auto; vertical-align:middle; margin-right:2px;">';
+                        }
+                        for ($i = $note; $i < 5; $i++) {
+                            echo '<img src="../../img/gourde_black.png" alt="gourde vide" style="width:20px; height:auto; vertical-align:middle; margin-right:2px;">';
+                        }
+                        ?>
+                    </span>
+                    <span class="date-avis"><?= date('d/m/Y', strtotime($a['date_avis'])) ?></span>
+                </h3>
                     <p><?= nl2br(htmlspecialchars($a['avis'])) ?></p>
                     <form method="GET" onsubmit="return confirm('Voulez-vous vraiment effacer cet exploit ?');">
                         <input type="hidden" name="supprimer" value="<?= $a['Id_avis'] ?>">

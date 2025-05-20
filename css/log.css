@@ -23,15 +23,7 @@ body {
     border-radius: 5px;
     box-shadow: 1em 2em 2.5em rgba(1, 2, 0, 0.08);
 }
-.block2 {
-    background-color: transparent;
-    backdrop-filter: blur(8px);
-    max-width: 23em;
-    padding: 4em;
-    border-radius: 5px;
-    box-shadow: 1em 2em 2.5em rgba(1, 2, 0, 0.08);
-    margin-top: -50px;
-}
+
 h2 {
     text-align: center;
     color: #fff;

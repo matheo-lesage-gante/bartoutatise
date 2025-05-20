@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Bar'Toutatise</title>
+        <title>Amix</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../../css/amis.css">
     </head>

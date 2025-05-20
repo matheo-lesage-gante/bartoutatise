@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="../../css/log.css">
+      <title>Log Up</title>
   </head>
   <body>
     <?php include 'header.php'?>
@@ -35,12 +36,16 @@
         <input name="valider" class="send_button" type="submit" value="Sign up">
       </div>
     </div>
-    </form>
+    <br>
 
     <div class="block2">
       <p class="text"> Tu as déjà ta place ?</p>
+      <br>
       <input type="button" value="Rejoint le village !" onclick="window.location.href='login.php'" class="send_button">
       
     </div>
+    </form>
+
+    
   </body>
 </html>

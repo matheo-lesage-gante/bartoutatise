@@ -63,10 +63,10 @@
             document.getElementById("VB").textContent = VB;
             document.getElementById("VRO").textContent = VRO;
             document.getElementById("Verre_Champagne").textContent = Verre_Champagne;
-            document.getElementById("Yager_Boob").textContent = Yager_Boob;
+            document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
             document.getElementById("Sky_Coca").textContent = Sky_Coca;
             document.getElementById("Verre_Mojito").textContent = Verre_Mojito;
-            document.getElementById("Verre_Sexe").textContent = Verre_Sexe;
+            document.getElementById("Verre_Sex").textContent = Verre_Sex;
             document.getElementById("Verre_Margarita").textContent = Verre_Margarita;
             document.getElementById("Verre_Monaco").textContent = Verre_Monaco;
             document.getElementById("Verre_Pina").textContent = Verre_Pina;
@@ -88,10 +88,10 @@
         <option value="option5">Verre de Vin blanc</option>
         <option value="option6">Verre de Rosé</option>
         <option value="option7">Verre de Champagne</option>
-        <option value="option8">Yager boob</option>
+        <option value="option8">Jagger boob</option>
         <option value="option9">sky coca</option>
         <option value="option10">Mojito</option>
-        <option value="option11">Sexe on the Beach</option>
+        <option value="option11">Sex on the Beach</option>
         <option value="option12">Margarita</option>
         <option value="option13">Monaco</option>
         <option value="option14">Pina Colada</option>
@@ -165,13 +165,9 @@
                 <span id="Verre_Champagne">0</span>
             </div>
         </div>
-        <div id="yager" class="div_verre">
-            <div class="verre" id="Yager">
-                <label for="Yager_Boob">Yager</label>
-            </div>
-            <div class="nb_verre">
-                <span id="Yager_Boob">0</span>
-            </div>
+        <div id="Yager">
+            <label for="Yager_Boob">Yager</label>
+            <span id="Yager_Boob">0</span>
         </div>
         <div id="sky" class="div_verre">
             <div class="verre" id="Sky">
@@ -189,13 +185,9 @@
                 <span id="Verre_Mojito">0</span>
             </div>
         </div>
-        <div id="Sexe" class="div_verre">
-            <div class="verre" id="Sexe_Beach">
-                <label for="Verre_Sexe">Sexe on the Beach</label>
-            </div>
-            <div class="nb_verre">
-                <span id="Verre_Sexe">0</span>
-            </div>
+        <div id="Sexe_Beach">
+            <label for="Verre_Sexe">Sexe on the Beach</label>
+            <span id="Verre_Sexe">0</span>
         </div>
         <div id="margarita" class="div_verre">
             <div class="verre" id="Margarita">
@@ -294,11 +286,11 @@
     let VB = 0;
     let VRO = 0;
     let Verre_Champagne = 0;
-    let Yager_Boob = 0;
+    let Jagger_Bomb = 0;
     let Sky_Coca = 0;
     let Verre_Mojito = 0;
     let Verre_Sky = 0;
-    let Verre_Sexe = 0;
+    let Verre_Sex = 0;
     let Verre_Margarita = 0;
     let Verre_Monaco = 0;
     let Verre_Pina = 0;
@@ -311,7 +303,7 @@
     
     const Verres = {
         Verre_biere1, Verre_biere2, Verre_biere3, VR, VB, VRO,
-        Verre_Champagne, Yager_Boob, Sky_Coca, Verre_Mojito, Verre_Sexe,
+        Verre_Champagne, Jagger_Bomb, Sky_Coca, Verre_Mojito, Verre_Sex,
         Verre_Margarita, Verre_Monaco, Verre_Pina, Verre_Blood,
         Verre_Martini, Verre_Ricard, shot1, shot2, shot3
     };
@@ -341,6 +333,7 @@
         inputPoids.max = '200';
         inputPoids.step = '0.1';
         inputPoids.required = true;
+        poid = false;
 
         validerBtn.textContent = 'Valider';
         validerBtn.onclick = function() {
@@ -351,6 +344,7 @@
             if(poids > 0){
                 divPoids.remove();
                 alert(`Poids enregistré : ${poids} kg`);
+                poid = true;
             }
         
             else{
@@ -373,6 +367,10 @@
 
 
     function calculerTaux() {
+        if (!poid) {
+            alert("Veuillez entrer votre poids avant de continuer.");
+            return;
+        }
         let sexe = "M";
         let coeff_sexe = (sexe === "M") ? 0.68 : 0.55;
         let degre;
@@ -454,11 +452,11 @@
                 saveToCookie();
                 break;
 
-            case "option8" : //Yager
+            case "option8" : //Jagger
                 alcoolPur = 28;
                 taux += alcoolPur / (poids * coeff_sexe);
-                Yager_Boob += 1;
-                document.getElementById("Yager_Boob").textContent = Yager_Boob;
+                Jagger_Bomb += 1;
+                document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
                 saveToCookie();
                 break;
 
@@ -478,11 +476,11 @@
                 saveToCookie();
                 break;
 
-            case "option11" : //Sexe on the Beach
+            case "option11" : //Sex on the Beach
                 alcoolPur = 19.2;
                 taux += alcoolPur / (poids * coeff_sexe);
-                Verre_Sexe += 1;
-                document.getElementById("Verre_Sexe").textContent = Verre_Sexe;
+                Verre_Sex += 1;
+                document.getElementById("Verre_Sex").textContent = Verre_Sex;
                 saveToCookie();
                 break;
 
@@ -623,11 +621,11 @@
         VB = 0;
         VRO = 0;
         Verre_Champagne = 0;
-        Yager_Boob = 0;
+        Jagger_Bomb = 0;
         Sky_Coca = 0;
         Verre_Mojito = 0;
         Verre_Sky = 0;
-        Verre_Sexe = 0;
+        Verre_Sex = 0;
         Verre_Margarita = 0;
         Verre_Monaco = 0;
         Verre_Pina = 0;
@@ -645,10 +643,10 @@
         document.getElementById("VB").textContent = "0";
         document.getElementById("VRO").textContent = "0";
         document.getElementById("Verre_Champagne").textContent = "0";
-        document.getElementById("Yager_Boob").textContent = "0";
+        document.getElementById("Jagger_Bomb").textContent = "0";
         document.getElementById("Sky_Coca").textContent = "0";
         document.getElementById("Verre_Mojito").textContent = "0";
-        document.getElementById("Verre_Sexe").textContent = "0";
+        document.getElementById("Verre_Sex").textContent = "0";
         document.getElementById("Verre_Margarita").textContent = "0";
         document.getElementById("Verre_Monaco").textContent = "0";
         document.getElementById("Verre_Pina").textContent = "0";
