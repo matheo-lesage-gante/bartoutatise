@@ -185,7 +185,6 @@ section h1 {
 .bar {
     width: 100px;
     height: 50px;
-    background-color: red;
     border-radius: 6px;
     position: absolute;
     left: max(calc(100px * 8), 100%);
@@ -196,34 +195,42 @@ section h1 {
 }
 
 .bar1 {
+    background: url(../img/logoBar/pdd.png);
     animation-delay: calc(30s / 8 * (8 - 1) * -1);
 }
 
 .bar2 {
+    background: url(../img/logoBar/pdr.png);
     animation-delay: calc(30s / 8 * (8 - 2) * -1);
 }
 
 .bar3 {
+    background: url(../img/logoBar/jagerbar.png);
     animation-delay: calc(30s / 8 * (8 - 3) * -1);
 }
 
 .bar4 {
+    background: url(../img/logoBar/fullmoon.png);
     animation-delay: calc(30s / 8 * (8 - 4) * -1);
 }
 
 .bar5 {
+    background: url(../img/logoBar/fridge.png);
     animation-delay: calc(30s / 8 * (8 - 5) * -1);
 }
 
 .bar6 {
+    background: url(../img/logoBar/faluche.png);
     animation-delay: calc(30s / 8 * (8 - 6) * -1);
 }
 
 .bar7 {
+    background: url(../img/logoBar/aquarium.png);
     animation-delay: calc(30s / 8 * (8 - 7) * -1);
 }
 
 .bar8 {
+    background: url(../img/logoBar/ambassade.png);
     animation-delay: calc(30s / 8 * (8 - 8) * -1);
 }
 
