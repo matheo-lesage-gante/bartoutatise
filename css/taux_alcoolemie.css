@@ -96,9 +96,9 @@ select, input, button {
 
 
 .message-taux {
-    position: absolute;
-    top: 530px;
-    left: 50%;
+    position: relative;
+    top: -30px;
+    left: 125px;
     transform: translateX(-50%);
     padding: 8px 16px;
     color: white;
@@ -120,10 +120,12 @@ select, input, button {
 }
 
 .message-taux.renit {
+    left: 155px;
     background-color: blue; /* Rouge */
 }
 
 .message-taux.renit_cookie {
+    left: 140px;
     background-color: purple; /* Rouge */
 }
 

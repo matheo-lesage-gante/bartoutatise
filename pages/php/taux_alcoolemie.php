@@ -721,12 +721,13 @@
             const expires = new Date(0).toUTCString();
             document.cookie = `alcoolData=; expires=${expires}; path=/`;
             removeOldMessages();
+            taux = 0;
             const mess_taux = document.createElement("div");
             mess_taux.className = "message-taux";
             mess_taux.classList.add('renit_cookie');
             mess_taux.textContent = "Vous venez de reinitialisé votre cookie";
             document.body.appendChild(mess_taux);
-        
+            saveToCookie();
         }
 
         function removeOldMessages() {
@@ -834,7 +835,7 @@
         mess_taux.className = "message-taux";
         mess_taux.textContent = "Taux estimé : " + taux_c.toFixed(2) + " g/l";
         document.body.appendChild(mess_taux);
-        
+
     </script>
 
 </body>
