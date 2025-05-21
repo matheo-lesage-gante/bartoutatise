@@ -16,14 +16,6 @@ body {
     color: #4a703c;
 }
 
-@media screen and (max-width: 800px) {
-    .container {
-        top: 50%;
-        left: 50%;
-        transform: translate(-35%, -1%);
-    }
-}
-
 h1 {
     font-family: 'Papyrus', cursive;
     font-size: 4rem;
