@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2025 at 08:17 PM
+-- Generation Time: May 21, 2025 at 04:11 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -65,7 +65,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (30, 6, 'PDR', 1, 'Parfait pour un vendredi soir.', '2025-01-15'),
 (31, 5, 'AQUARIUM', 1, 'Service un peu lent mais bonne musique.', '2025-02-04'),
 (32, 3, 'SEVEN', 4, 'Service un peu lent mais bonne musique.', '2025-04-22'),
-(33, 8, 'PDD', 2, 'Cocktails originaux et délicieux.', '2024-12-17'),
 (34, 5, 'PDR', 2, 'Très bonne expérience dans l ensemble.', '2025-01-10'),
 (35, 6, 'FALUCHE', 3, 'Un peu trop bruyant à mon goût.', '2025-04-12'),
 (36, 1, 'FALUCHE', 4, 'Décevant cette fois-ci.', '2025-02-07'),
@@ -92,15 +91,12 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (57, 6, 'SEVEN', 5, 'Clientèle jeune et dynamique.', '2025-03-06'),
 (58, 7, 'VERDE', 2, 'Service un peu lent mais bonne musique.', '2024-12-11'),
 (59, 2, 'SEVEN', 2, 'Un peu trop bruyant à mon goût.', '2025-01-17'),
-(60, 5, 'PDD', 2, 'Ambiance incroyable, j y retournerai !', '2024-11-07'),
 (61, 9, 'AQUARIUM', 4, 'Parfait pour un vendredi soir.', '2024-10-05'),
 (62, 8, 'OASIS', 2, 'Déco sympa, mais pas assez de places.', '2024-12-15'),
-(63, 10, 'PDD', 1, 'Ambiance incroyable, j y retournerai !', '2024-11-29'),
 (64, 1, 'OASIS', 2, 'Un peu trop bruyant à mon goût.', '2025-01-21'),
 (65, 13, 'SEVEN', 5, 'Un peu trop bruyant à mon goût.', '2024-12-20'),
 (66, 8, 'IMPREVU', 3, 'Cocktails originaux et délicieux.', '2025-03-09'),
 (67, 10, 'VERDE', 4, 'Service un peu lent mais bonne musique.', '2025-04-23'),
-(68, 4, 'PDD', 1, 'Déco sympa, mais pas assez de places.', '2024-11-14'),
 (69, 13, 'OASIS', 2, 'Décevant cette fois-ci.', '2025-01-10'),
 (70, 5, 'IMPREVU', 3, 'Ambiance incroyable, j y retournerai !', '2024-12-24'),
 (71, 10, 'SEVEN', 3, 'Ambiance incroyable, j y retournerai !', '2024-11-04'),
@@ -129,7 +125,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (94, 5, 'AQUARIUM', 4, 'Prix raisonnables, je recommande.', '2025-02-26'),
 (95, 8, 'FALUCHE', 4, 'Décevant cette fois-ci.', '2025-04-02'),
 (96, 7, 'OASIS', 2, 'Très bonne expérience dans l ensemble.', '2025-04-18'),
-(97, 2, 'PDD', 1, 'Ambiance incroyable, j y retournerai !', '2025-04-19'),
 (98, 8, 'OASIS', 1, 'Très bonne expérience dans l ensemble.', '2024-11-28'),
 (99, 1, 'FALUCHE', 4, 'Prix raisonnables, je recommande.', '2024-11-28'),
 (100, 4, 'PDD', 5, 'Cocktails originaux et délicieux.', '2025-03-04'),
@@ -157,7 +152,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (122, 8, 'IMPREVU', 2, 'Ambiance incroyable, j y retournerai !', '2025-04-01'),
 (123, 2, 'SEVEN', 2, 'Très bonne expérience dans l ensemble.', '2025-03-02'),
 (124, 3, 'PDD', 2, 'Prix raisonnables, je recommande.', '2025-04-09'),
-(125, 13, 'PDD', 1, 'Décevant cette fois-ci.', '2025-03-28'),
 (126, 5, 'VERDE', 2, 'Très bonne expérience dans l ensemble.', '2024-10-08'),
 (127, 1, 'IMPREVU', 3, 'Décevant cette fois-ci.', '2025-04-04'),
 (128, 7, 'OASIS', 4, 'Ambiance incroyable, j y retournerai !', '2025-01-21'),
@@ -173,7 +167,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (138, 6, 'SEVEN', 5, 'Décevant cette fois-ci.', '2025-01-10'),
 (139, 13, 'PDR', 2, 'Un peu trop bruyant à mon goût.', '2025-02-06'),
 (140, 11, 'PDR', 1, 'Déco sympa, mais pas assez de places.', '2025-03-24'),
-(141, 4, 'PDD', 2, 'Un peu trop bruyant à mon goût.', '2024-11-11'),
 (142, 4, 'IMPREVU', 4, 'Parfait pour un vendredi soir.', '2024-12-11'),
 (143, 4, 'SEVEN', 2, 'Décevant cette fois-ci.', '2025-01-04'),
 (144, 8, 'FALUCHE', 1, 'Cocktails originaux et délicieux.', '2024-10-22'),
@@ -224,7 +217,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (189, 4, 'VERDE', 1, 'Très bonne expérience dans l ensemble.', '2024-11-16'),
 (190, 11, 'PDR', 2, 'Déco sympa, mais pas assez de places.', '2025-02-03'),
 (191, 3, 'AQUARIUM', 5, 'Clientèle jeune et dynamique.', '2025-04-19'),
-(192, 9, 'PDD', 1, 'Cocktails originaux et délicieux.', '2025-04-21'),
 (193, 4, 'PDD', 4, 'Ambiance incroyable, j y retournerai !', '2024-10-02'),
 (194, 12, 'VERDE', 1, 'Service un peu lent mais bonne musique.', '2024-12-10'),
 (195, 2, 'PDR', 1, 'Service un peu lent mais bonne musique.', '2024-10-27'),
@@ -234,7 +226,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (199, 12, 'AQUARIUM', 3, 'Ambiance incroyable, j y retournerai !', '2024-12-30'),
 (200, 6, 'VERDE', 3, 'Un peu trop bruyant à mon goût.', '2024-12-13'),
 (201, 8, 'FALUCHE', 5, 'Parfait pour un vendredi soir.', '2024-11-07'),
-(202, 1, 'PDD', 2, 'Très bonne expérience dans l ensemble.', '2025-03-17'),
 (203, 10, 'OASIS', 2, 'Un peu trop bruyant à mon goût.', '2024-10-21'),
 (204, 9, 'VERDE', 2, 'Prix raisonnables, je recommande.', '2025-03-10'),
 (205, 1, 'PDR', 4, 'Très bonne expérience dans l ensemble.', '2025-02-14'),
@@ -280,7 +271,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (245, 10, 'PDD', 4, 'Décevant cette fois-ci.', '2025-01-16'),
 (246, 8, 'AQUARIUM', 5, 'Ambiance incroyable, j y retournerai !', '2025-03-09'),
 (247, 9, 'AQUARIUM', 2, 'Déco sympa, mais pas assez de places.', '2024-12-15'),
-(248, 1, 'PDD', 1, 'Service un peu lent mais bonne musique.', '2025-04-30'),
 (249, 9, 'PDD', 2, 'Cocktails originaux et délicieux.', '2025-02-26'),
 (250, 3, 'PDR', 5, 'Parfait pour un vendredi soir.', '2024-11-21'),
 (251, 6, 'SEVEN', 2, 'Ambiance incroyable, j y retournerai !', '2024-11-29'),
@@ -289,10 +279,8 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (254, 5, 'PDR', 5, 'Décevant cette fois-ci.', '2024-12-08'),
 (255, 1, 'PDD', 4, 'Ambiance incroyable, j y retournerai !', '2025-01-25'),
 (256, 7, 'IMPREVU', 5, 'Très bonne expérience dans l ensemble.', '2024-11-24'),
-(257, 9, 'PDR', 1, 'Clientèle jeune et dynamique.', '2025-04-23'),
 (258, 6, 'VERDE', 2, 'Cocktails originaux et délicieux.', '2025-01-26'),
 (259, 3, 'PDD', 3, 'Cocktails originaux et délicieux.', '2024-11-06'),
-(260, 10, 'PDD', 1, 'Service un peu lent mais bonne musique.', '2024-12-13'),
 (261, 9, 'SEVEN', 1, 'Très bonne expérience dans l ensemble.', '2025-01-19'),
 (262, 12, 'VERDE', 1, 'Prix raisonnables, je recommande.', '2025-04-18'),
 (263, 12, 'AQUARIUM', 2, 'Prix raisonnables, je recommande.', '2024-12-11'),
@@ -300,7 +288,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (265, 8, 'PDR', 2, 'Cocktails originaux et délicieux.', '2024-12-25'),
 (266, 13, 'IMPREVU', 3, 'Parfait pour un vendredi soir.', '2024-11-24'),
 (267, 3, 'IMPREVU', 1, 'Ambiance incroyable, j y retournerai !', '2025-03-31'),
-(268, 13, 'PDR', 1, 'Service un peu lent mais bonne musique.', '2025-01-20'),
 (269, 12, 'OASIS', 4, 'Ambiance incroyable, j y retournerai !', '2025-03-20'),
 (270, 4, 'SEVEN', 3, 'Très bonne expérience dans l ensemble.', '2024-10-29'),
 (271, 4, 'FALUCHE', 4, 'Déco sympa, mais pas assez de places.', '2025-04-16'),
@@ -345,7 +332,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (310, 1, 'PDR', 5, 'Prix raisonnables, je recommande.', '2025-04-23'),
 (311, 7, 'IMPREVU', 5, 'Service un peu lent mais bonne musique.', '2025-02-14'),
 (312, 9, 'FALUCHE', 4, 'Parfait pour un vendredi soir.', '2024-10-29'),
-(313, 6, 'PDD', 1, 'Clientèle jeune et dynamique.', '2025-03-11'),
 (314, 9, 'IMPREVU', 1, 'Prix raisonnables, je recommande.', '2025-04-28'),
 (315, 8, 'FALUCHE', 4, 'Ambiance incroyable, j y retournerai !', '2024-11-11'),
 (316, 4, 'SEVEN', 2, 'Service un peu lent mais bonne musique.', '2025-01-14'),
@@ -400,7 +386,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (365, 8, 'OASIS', 4, 'Prix raisonnables, je recommande.', '2025-02-10'),
 (366, 12, 'FALUCHE', 4, 'Très bonne expérience dans l ensemble.', '2024-11-11'),
 (367, 7, 'SEVEN', 1, 'Cocktails originaux et délicieux.', '2024-11-16'),
-(368, 13, 'PDD', 1, 'Service un peu lent mais bonne musique.', '2025-04-03'),
 (369, 10, 'VERDE', 2, 'Ambiance incroyable, j y retournerai !', '2025-04-17'),
 (370, 12, 'AQUARIUM', 5, 'Très bonne expérience dans l ensemble.', '2025-04-03'),
 (371, 7, 'VERDE', 3, 'Décevant cette fois-ci.', '2025-04-17'),
@@ -421,7 +406,6 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (386, 12, 'PDR', 4, 'Un peu trop bruyant à mon goût.', '2025-04-18'),
 (387, 10, 'VERDE', 3, 'Parfait pour un vendredi soir.', '2025-03-27'),
 (388, 2, 'PDR', 1, 'Décevant cette fois-ci.', '2025-02-15'),
-(389, 13, 'PDD', 1, 'Service un peu lent mais bonne musique.', '2025-03-27'),
 (390, 2, 'SEVEN', 5, 'Clientèle jeune et dynamique.', '2024-12-02'),
 (391, 13, 'VERDE', 2, 'Décevant cette fois-ci.', '2024-10-06'),
 (392, 2, 'SEVEN', 2, 'Déco sympa, mais pas assez de places.', '2024-10-25'),
@@ -440,7 +424,12 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (405, 6, 'IMPREVU', 4, 'Service un peu lent mais bonne musique.', '2025-01-04'),
 (406, 6, 'PDD', 4, 'Prix raisonnables, je recommande.', '2024-12-28'),
 (407, 7, 'IMPREVU', 3, 'Très bonne expérience dans l ensemble.', '2024-11-10'),
-(408, 9, 'FALUCHE', 5, 'Parfait pour un vendredi soir.', '2024-10-30');
+(408, 9, 'FALUCHE', 5, 'Parfait pour un vendredi soir.', '2024-10-30'),
+(409, 4, 'PDD', 5, 'J\'ai adoré !', '2025-05-21'),
+(410, 4, 'PDD', 5, 'Toujours autant incroyable !', '2025-05-21'),
+(411, 4, 'PDD', 5, 'INSANE §', '2025-05-21'),
+(412, 4, 'PDD', 5, 'Chapeau !', '2025-05-21'),
+(413, 4, 'PDD', 5, 'SHEESH !', '2025-05-21');
 
 -- --------------------------------------------------------
 
@@ -452,7 +441,7 @@ CREATE TABLE `bar` (
   `Id_bar` int(10) NOT NULL,
   `Nom` varchar(64) NOT NULL,
   `Adresse` text NOT NULL,
-  `Avis` int(1) NOT NULL,
+  `Avis` int(11) NOT NULL,
   `Horaire` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -461,14 +450,14 @@ CREATE TABLE `bar` (
 --
 
 INSERT INTO `bar` (`Id_bar`, `Nom`, `Adresse`, `Avis`, `Horaire`) VALUES
-(1, 'Verde', '21 Rue Masséna, Lille', 0, 'Mar-Sam: 22h-00h'),
-(2, 'SEVEN', '124 Rue Solférino, Lille, France', 0, 'Lun-Sam: 19h-02h'),
-(3, 'PDR', '43 Rue Masséna, Lille', 0, 'Dim-Mer: 10h-01h, Jeu-Ven: 10h-02h'),
-(4, 'PDD', '48 Rue Solférino, Lille', 0, 'Lun-Jeu: 15h-00h, Ven: 15h-01h, Sam: 14h-01h, Dim: 14h-22h'),
-(5, 'Oasis', '1 Av. Mathias Delobel, Lille', 0, 'Lun-Sam: 10h30-23h30, Dim: 10h30-21h'),
-(6, 'L’Imprévu', '18 Rue Masséna, Lille', 0, 'Dim-Mer: 15h-01h, Jeu-Sam: 15h-02h'),
-(7, 'La Faluche', '39 Rue du Port, Lille', 0, 'Lun: 10h-21h, Mar: 10h-00h, Mer: 10h-21h, Jeu: 10h-00h, Ven: 10h-00h30'),
-(8, 'Aquarium', '29 Rue Ernest Deconynck, Lille', 0, 'Dim-Mer: 18h-01h, Jeu-Ven: 18h-02h');
+(1, 'Verde', '21 Rue Masséna, Lille', 3, 'Mar-Sam: 22h-00h'),
+(2, 'SEVEN', '124 Rue Solférino, Lille, France', 3, 'Lun-Sam: 19h-02h'),
+(3, 'PDR', '43 Rue Masséna, Lille', 3, 'Dim-Mer: 10h-01h, Jeu-Ven: 10h-02h'),
+(4, 'PDD', '48 Rue Solférino, Lille', 4, 'Lun-Jeu: 15h-00h, Ven: 15h-01h, Sam: 14h-01h, Dim: 14h-22h'),
+(5, 'Oasis', '1 Av. Mathias Delobel, Lille', 3, 'Lun-Sam: 10h30-23h30, Dim: 10h30-21h'),
+(6, 'Imprevu', '18 Rue Masséna, Lille', 3, 'Dim-Mer: 15h-01h, Jeu-Sam: 15h-02h'),
+(7, 'Faluche', '39 Rue du Port, Lille', 3, 'Lun: 10h-21h, Mar: 10h-00h, Mer: 10h-21h, Jeu: 10h-00h, Ven: 10h-00h30'),
+(8, 'Aquarium', '29 Rue Ernest Deconynck, Lille', 3, 'Dim-Mer: 18h-01h, Jeu-Ven: 18h-02h');
 
 -- --------------------------------------------------------
 
@@ -544,7 +533,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `avis`
 --
 ALTER TABLE `avis`
-  MODIFY `Id_avis` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `Id_avis` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=414;
 
 --
 -- AUTO_INCREMENT for table `bar`

@@ -6,7 +6,18 @@ if (!isset($_SESSION['Id'])) {
     header("Location: ../php/login.php");
     exit();
 }
+//Moyenne des notes par bar de la table avis / update table bar avis=moyenne pour chaque bar avec commentaire a chaque ligne
+    $sqlUpdate = "UPDATE bar 
+                SET avis = (SELECT AVG(note) FROM avis WHERE avis.Nom_bar = bar.Nom)
+                WHERE EXISTS (SELECT 1 FROM avis WHERE avis.Nom_bar = bar.Nom)";
+    $stmtUpdate = $conn->prepare($sqlUpdate);
+    $stmtUpdate->execute();
+    
 
+
+
+
+             
 // Suppression d'un avis
 if (isset($_GET['supprimer']) && is_numeric($_GET['supprimer'])) {
     $idAvis = intval($_GET['supprimer']);
