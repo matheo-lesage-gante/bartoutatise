@@ -109,6 +109,7 @@ select, input, button {
     text-align: center;
     min-width: 250px;
     font-size: 0.9em;
+    z-index : 0;
 }
 
 .message-taux.safe {
@@ -224,6 +225,28 @@ button:hover {
 #alcoholChart {
     width: 100% !important;
     height: auto !important;
+}
+
+.projection-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: rgba(248, 244, 230, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #3a2810;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.projection-message {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 /* Media Queries pour les petits écrans */

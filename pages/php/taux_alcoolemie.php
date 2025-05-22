@@ -584,12 +584,14 @@
             mess_taux.className = "message-taux";
 
             document.body.appendChild(mess_taux);
+            updateBeerGlass(taux);
             updateChart(taux);
             update_fond(taux);
     
             intervalId = setInterval(() => {
                 if (taux > 0) {
-                    taux = Math.max(0, taux - 0.15);
+                    taux = Math.max(0, taux - 0.0025);
+                    saveToCookie();
                     if(taux == 0){
                         clearInterval(intervalId);
                         alert("Vous n'avez plus d'alcool détectable dans le sang.");
@@ -597,13 +599,13 @@
                     else {
                         removeOldMessages();
                         mess_taux = document.createElement("div");
-                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                        mess_taux.textContent = "taux estimé : " + taux.toFixed(3) + " g/l";
                         document.body.appendChild(mess_taux);
                         update_fond(taux);
                         updateChart(taux);
                     }
                 }
-            }, 3600000);
+            }, 60000);
             document.getElementById("taux").textContent = taux.toFixed(3);
         }
 
@@ -701,6 +703,9 @@
             updateBeerGlass(0);
             removeOldMessages();
 
+            const projectionMessages = document.querySelectorAll(".projection-message, .projection-container");
+            projectionMessages.forEach(msg => msg.remove());
+
             if (chart) {
                 chart.destroy();
                 chart = null;
@@ -721,6 +726,8 @@
             const expires = new Date(0).toUTCString();
             document.cookie = `alcoolData=; expires=${expires}; path=/`;
             removeOldMessages();
+            const projectionMessages = document.querySelectorAll(".projection-message, .projection-container");
+            projectionMessages.forEach(msg => msg.remove());
             taux = 0;
             const mess_taux = document.createElement("div");
             mess_taux.className = "message-taux";
@@ -818,13 +825,115 @@
                 alcoholData.shift();
             }
             
+            // Calculer les projections
+            const projections = calculateProjection(newTaux);
+            
             if (!chart) {
-                initChart();
+                initChart(projections);
             } else {
                 chart.data.labels = timeData;
                 chart.data.datasets[0].data = alcoholData;
+                
+                // Mettre à jour les annotations de projection
+                updateProjectionAnnotations(projections);
+                
                 chart.update();
             }
+            
+            // Afficher les projections sous forme de message
+            displayProjectionMessages(projections);
+        }
+
+        function calculateProjection(currentTaux) {
+            const projections = [];
+            const now = new Date();
+            
+            // Calculer quand le taux passera sous 0.25
+            if (currentTaux > 0.25) {
+                const hoursTo025 = (currentTaux - 0.25) / 0.15;
+                const date025 = new Date(now.getTime() + hoursTo025 * 3600000);
+                projections.push({
+                    taux: 0.25,
+                    time: date025,
+                    label: `0.25 g/L à ${date025.getHours()}h${date025.getMinutes().toString().padStart(2, '0')}`
+                });
+            }
+            
+            // Calculer quand le taux passera sous 0
+            if (currentTaux > 0) {
+                const hoursTo0 = currentTaux / 0.15;
+                const date0 = new Date(now.getTime() + hoursTo0 * 3600000);
+                projections.push({
+                    taux: 0,
+                    time: date0,
+                    label: `0 g/L à ${date0.getHours()}h${date0.getMinutes().toString().padStart(2, '0')}`
+                });
+            }
+            
+            return projections;
+        }
+
+        function getAnnotationConfig(projections) {
+    const annotations = {
+        line025: {
+            type: 'line',
+            yMin: 0.25,
+            yMax: 0.25,
+            borderColor: 'orange',
+            borderWidth: 2,
+            borderDash: [6, 6],
+            label: {
+                content: 'Limite légale (0.25 g/L)',
+                enabled: true,
+                position: 'right'
+            }
+        }
+    };
+    
+    // Ajouter les projections comme annotations
+    projections.forEach((proj, index) => {
+        annotations[`proj${index}`] = {
+            type: 'label',
+            content: proj.label,
+            xValue: timeData[timeData.length - 1] + (proj.taux === 0.25 ? 
+                    (alcoholData[alcoholData.length - 1] - 0.25) / 0.15 * 60 :
+                    alcoholData[alcoholData.length - 1] / 0.15 * 60),
+            yValue: proj.taux,
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+            borderColor: '#3a2810',
+            borderWidth: 1,
+            borderRadius: 4,
+            position: 'right'
+        };
+    });
+    
+    return annotations;
+}
+
+function updateProjectionAnnotations(projections) {
+    if (!chart) return;
+    
+    chart.options.plugins.annotation.annotations = getAnnotationConfig(projections);
+}
+
+        function displayProjectionMessages(projections) {
+            // Supprimer les anciens messages de projection
+            const oldMessages = document.querySelectorAll(".projection-message");
+            oldMessages.forEach(msg => msg.remove());
+            
+            if (projections.length === 0) return;
+            
+            const container = document.createElement("div");
+            container.className = "projection-container";
+            
+            projections.forEach(proj => {
+                const message = document.createElement("div");
+                message.className = "projection-message";
+                message.textContent = proj.label;
+                container.appendChild(message);
+            });
+            
+            document.body.appendChild(container);
         }
 
         const cookieRow = document.cookie.split('; ').find(row => row.startsWith('alcoolData='));
