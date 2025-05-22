@@ -27,11 +27,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':date_avis', $date_avis);
         $stmt->execute();
 
+        $sqlCheckBar = "SELECT * FROM bar WHERE Nom = :Nom";
+        $stmtCheckBar = $conn->prepare($sqlCheckBar);
+        $stmtCheckBar->bindParam(':Nom', $nom_bar);
+        $stmtCheckBar->execute();
+        $barExists = $stmtCheckBar->fetch(PDO::FETCH_ASSOC);
+        if (!$barExists) {
+            // Si le bar n'existe pas, on l'ajoute
+            $sqlInsertBar = "INSERT INTO bar (Nom, Adresse,Avis, Horaire) VALUES (:Nom, 'à préciser', 0 , 'à préciser')";
+            $stmtInsertBar = $conn->prepare($sqlInsertBar);
+            $stmtInsertBar->bindParam(':Nom', $nom_bar);
+            $stmtInsertBar->execute();
+            
+        
+        }
+
         header("Location: mes_avis.php?onglet=mes");
         exit();
     } else {
         $erreur = "Par Toutatis ! Tous les champs doivent être remplis correctement, même le chaudron du druide !";
     }
+    
 }
 ?>
 
