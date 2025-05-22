@@ -40,9 +40,11 @@ $idUser = $_SESSION['Id'];
 $search = $_GET['search'] ?? '';
 $sort = $_GET['sort'] ?? '';
 
-$baseQuery = "SELECT avis.*, profil.Pseudo FROM avis 
-              JOIN profil ON avis.Id_profil = profil.Id
-              WHERE Nom_bar LIKE :search";
+$baseQuery = "SELECT avis.*, profil.Pseudo, bar.avis AS moyenne_bar
+FROM avis 
+JOIN profil ON avis.Id_profil = profil.Id
+JOIN bar ON avis.Nom_bar = bar.Nom
+WHERE avis.Nom_bar LIKE :search";
 
 if ($sort === 'note') {
     $baseQuery .= " ORDER BY note DESC";
@@ -99,7 +101,22 @@ $mesAvis = $stmtPerso->fetchAll(PDO::FETCH_ASSOC);
         </form>
 
         <?php if ($avisCommunaute): ?>
-            <?php foreach ($avisCommunaute as $a): ?>
+            <?php if (!empty($search) && count($avisCommunaute) > 0): ?>
+    <div class="moyenne-bar" style="margin-bottom: 15px;">
+        <strong>Le "<?= htmlspecialchars($avisCommunaute[0]['Nom_bar']) ?>" posséde :</strong>
+        <span class="note">
+            <?php 
+            $moyenne = round($avisCommunaute[0]['moyenne_bar']);
+            for ($i = 0; $i < $moyenne; $i++) {
+                echo '<img src="../../img/gourde.png" alt="gourde pleine" style="width:20px; height:auto; vertical-align:middle; margin-right:2px;">';
+            }
+            ?>
+        </span> 
+
+    </div>
+<?php endif; ?>
+
+    <?php foreach ($avisCommunaute as $a): ?>
                 <div class="avis">
                 <h3>
                     <?= htmlspecialchars($a['Nom_bar']) ?>
