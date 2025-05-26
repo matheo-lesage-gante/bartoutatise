@@ -48,16 +48,16 @@ if (isset($_POST['save_profile'])) {
       <div id="affichage-profil">
         <div class="infos">
           <h2>Nom : <?php echo htmlspecialchars($_SESSION['Pseudo']); ?></h2>
-          <p><strong>Tribu :</strong> <?php echo htmlspecialchars($_SESSION['tribu'] ?? 'Les Irréductibles Gaulois'); ?></p>
-          <p><strong>Force spéciale :</strong> <?php echo htmlspecialchars($_SESSION['force'] ?? 'Buveur de potion magique 💥'); ?></p>
-          <p><strong>Compagnon :</strong> <?php echo htmlspecialchars($_SESSION['compagnon'] ?? 'Obélix (et Idéfix 🐶)'); ?></p>
-          <p><strong>Phrase culte :</strong> “<?php echo htmlspecialchars($_SESSION['phrase'] ?? 'Ils sont fous ces Romains !'); ?>”</p>
+          <p><strong>Tribu :</strong> <?php echo htmlspecialchars($_SESSION['tribu'] ); ?></p> 
+          <p><strong>Force spéciale :</strong> <?php echo htmlspecialchars($_SESSION['force'] ); ?></p>  
+          <p><strong>Compagnon :</strong> <?php echo htmlspecialchars($_SESSION['compagnon'] ); ?></p>
+          <p><strong>Phrase culte :</strong> <?php echo htmlspecialchars($_SESSION['phrase'] ); ?></p>
         </div>
         <button id="btnModifier">Modifier</button>
       </div>
 
       <!-- Formulaire caché -->
-      <form id="formulaire-modif" method="post" action="">
+      <form id="formulaire-modif" method="post" action="form.php">
         <label for="tribu">Choisis ta tribu :</label><br />
         <select name="tribu" id="tribu" required>
           <?php
@@ -83,7 +83,7 @@ if (isset($_POST['save_profile'])) {
         <select name="force" id="force" required>
           <?php
           $forces = [
-            "Buveur de potion magique 💥",
+            "Buveur de potion magique ",
             "Force surhumaine",
             "Grand stratège",
             "Courage exceptionnel"
@@ -99,7 +99,7 @@ if (isset($_POST['save_profile'])) {
         <select name="compagnon" id="compagnon" required>
           <?php
           $compagnons = [
-            "Obélix (et Idéfix 🐶)",
+            "Obélix (et Idéfix )",
             "Panoramix",
             "Assurancetourix",
             "Abraracourcix",
@@ -131,16 +131,29 @@ if (isset($_POST['save_profile'])) {
             "Nom d’un Gaulois !",
             "Tu vas voir ce que tu vas voir !"
           ];
+        
+
           foreach ($phrases as $phrase) {
             $selected = (isset($_SESSION['phrase']) && $_SESSION['phrase'] === $phrase) ? 'selected' : '';
             echo "<option value=\"$phrase\" $selected>$phrase</option>";
           }
+          //Changer les valeur de sesion avant de les implémnenter dans la bdd
+          $_SESSION['tribu'] = $_POST['tribu'] ?? $_SESSION['tribu'];
+          $_SESSION['force'] = $_POST['force'] ?? $_SESSION['force'];
+          $_SESSION['compagnon'] = $_POST['compagnon'] ?? $_SESSION['compagnon'];
+          $_SESSION['phrase'] = $_POST['phrase'] ?? $_SESSION['phrase'];
+          //Update la bdd
           ?>
         </select><br /><br />
 
         <button type="submit" name="save_profile">Enregistrer</button>
         <button type="button" id="btnAnnuler">Annuler</button>
       </form>
+     
+      
+
+
+
     </section>
 
     <div class="profil-trophees">

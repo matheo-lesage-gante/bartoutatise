@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 21, 2025 at 04:11 AM
+-- Generation Time: May 26, 2025 at 01:38 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -429,7 +429,9 @@ INSERT INTO `avis` (`Id_avis`, `Id_profil`, `Nom_bar`, `note`, `avis`, `date_avi
 (410, 4, 'PDD', 5, 'Toujours autant incroyable !', '2025-05-21'),
 (411, 4, 'PDD', 5, 'INSANE §', '2025-05-21'),
 (412, 4, 'PDD', 5, 'Chapeau !', '2025-05-21'),
-(413, 4, 'PDD', 5, 'SHEESH !', '2025-05-21');
+(413, 4, 'PDD', 5, 'SHEESH !', '2025-05-21'),
+(422, 4, 'verde', 4, 'Ambiance Super !', '2025-05-22'),
+(423, 4, 'Zytho', 5, 'Ambiance incroyable !', '2025-05-22');
 
 -- --------------------------------------------------------
 
@@ -457,7 +459,8 @@ INSERT INTO `bar` (`Id_bar`, `Nom`, `Adresse`, `Avis`, `Horaire`) VALUES
 (5, 'Oasis', '1 Av. Mathias Delobel, Lille', 3, 'Lun-Sam: 10h30-23h30, Dim: 10h30-21h'),
 (6, 'Imprevu', '18 Rue Masséna, Lille', 3, 'Dim-Mer: 15h-01h, Jeu-Sam: 15h-02h'),
 (7, 'Faluche', '39 Rue du Port, Lille', 3, 'Lun: 10h-21h, Mar: 10h-00h, Mer: 10h-21h, Jeu: 10h-00h, Ven: 10h-00h30'),
-(8, 'Aquarium', '29 Rue Ernest Deconynck, Lille', 3, 'Dim-Mer: 18h-01h, Jeu-Ven: 18h-02h');
+(8, 'Aquarium', '29 Rue Ernest Deconynck, Lille', 3, 'Dim-Mer: 18h-01h, Jeu-Ven: 18h-02h'),
+(11, 'Zytho', 'à préciser', 5, 'à préciser');
 
 -- --------------------------------------------------------
 
@@ -480,28 +483,32 @@ CREATE TABLE `profil` (
   `Ami7` int(5) DEFAULT NULL,
   `Ami8` int(5) DEFAULT NULL,
   `Ami9` int(5) DEFAULT NULL,
-  `Ami10` int(5) DEFAULT NULL
+  `Ami10` int(5) DEFAULT NULL,
+  `Tribu` varchar(255) NOT NULL DEFAULT '?',
+  `Force` varchar(255) NOT NULL DEFAULT '?',
+  `Compagnon` varchar(255) NOT NULL DEFAULT '?',
+  `Phrase` varchar(255) NOT NULL DEFAULT '?'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Admin`, `Ami1`, `Ami2`, `Ami3`, `Ami4`, `Ami5`, `Ami6`, `Ami7`, `Ami8`, `Ami9`, `Ami10`) VALUES
-(1, 'Bart', 'corentin.bondeau@gmail.com', 'Bart', 0, 13, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'aaa', 'Angus@student.junia.com', 'aaa', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'aaz', 'Angus@student.junia.com', 'aaa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Alice01', 'alice01@example.com', 'mdpAlice', 0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11),
-(5, 'Bob02', 'bob02@example.com', 'mdpBob', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'Charlie03', 'charlie03@example.com', 'mdpCharlie', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'Diane04', 'diane04@example.com', 'mdpDiane', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'Eric05', 'eric05@example.com', 'mdpEric', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'Fiona06', 'fiona06@example.com', 'mdpFiona', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'Greg07', 'greg07@example.com', 'mdpGreg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'Hana08', 'hana08@example.com', 'mdpHana', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'Ian09', 'ian09@example.com', 'mdpIan', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Julia10', 'julia10@example.com', 'mdpJulia', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'Admin', 'Admin@admin.com', 'admin', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `profil` (`Id`, `Pseudo`, `Mail`, `Mdp`, `Admin`, `Ami1`, `Ami2`, `Ami3`, `Ami4`, `Ami5`, `Ami6`, `Ami7`, `Ami8`, `Ami9`, `Ami10`, `Tribu`, `Force`, `Compagnon`, `Phrase`) VALUES
+(1, 'Bart', 'corentin.bondeau@gmail.com', 'Bart', 0, 13, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(2, 'aaa', 'Angus@student.junia.com', 'aaa', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(3, 'aaz', 'Angus@student.junia.com', 'aaa', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(4, 'Alice01', 'alice01@example.com', 'mdpAlice', 2, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, '?', '?', '?', '?'),
+(5, 'Bob02', 'bob02@example.com', 'mdpBob', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(6, 'Charlie03', 'charlie03@example.com', 'mdpCharlie', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(7, 'Diane04', 'diane04@example.com', 'mdpDiane', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(8, 'Eric05', 'eric05@example.com', 'mdpEric', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(9, 'Fiona06', 'fiona06@example.com', 'mdpFiona', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(10, 'Greg07', 'greg07@example.com', 'mdpGreg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(11, 'Hana08', 'hana08@example.com', 'mdpHana', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(12, 'Ian09', 'ian09@example.com', 'mdpIan', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(13, 'Julia10', 'julia10@example.com', 'mdpJulia', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '?', '?', '?', '?'),
+(14, 'Admin', 'Admin@admin.com', 'admin', 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Les Germains', 'Force surhumaine', 'Assurancetourix', 'La potion magique, c’est sacré !');
 
 --
 -- Indexes for dumped tables
@@ -533,13 +540,13 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `avis`
 --
 ALTER TABLE `avis`
-  MODIFY `Id_avis` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=414;
+  MODIFY `Id_avis` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=424;
 
 --
 -- AUTO_INCREMENT for table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_bar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `profil`

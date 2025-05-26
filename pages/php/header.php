@@ -33,9 +33,9 @@
           echo '<li><a href="../php/profil.php">Profil</a></li>';
         }
         // Page d'accueil de l'auberge
-        if((isset($_SESSION['admin']) && $_SESSION['admin'] == 1) || (isset($_SESSION['admin']) && $_SESSION['admin'] == 2)) { 
-            echo '<li><a href="../php/Auberge.php">Taverne</a></li>';
-        } 
+        // if((isset($_SESSION['admin']) && $_SESSION['admin'] == 1) || (isset($_SESSION['admin']) && $_SESSION['admin'] == 2)) { 
+        //     echo '<li><a href="../php/Auberge.php">Taverne</a></li>';
+        // } 
          if(isset($_SESSION['authentifie'])) { 
             echo '<li><a href="../php/logout.php">Logout</a></li>';
         }
