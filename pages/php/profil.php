@@ -83,7 +83,7 @@ if (isset($_POST['save_profile'])) {
         <select name="force" id="force" required>
           <?php
           $forces = [
-            "Buveur de potion magique 💥",
+            "Buveur de potion magique ",
             "Force surhumaine",
             "Grand stratège",
             "Courage exceptionnel"
@@ -99,7 +99,7 @@ if (isset($_POST['save_profile'])) {
         <select name="compagnon" id="compagnon" required>
           <?php
           $compagnons = [
-            "Obélix (et Idéfix 🐶)",
+            "Obélix (et Idéfix )",
             "Panoramix",
             "Assurancetourix",
             "Abraracourcix",
