@@ -76,7 +76,36 @@
             header('Location: fail.php?err=falsePsdPswd');
         }
     }
+    // Variable de sesion du profil
+    if(isset($_SESSION['Id'])) {
+        $id = $_SESSION['Id'];
+        $stmt = $conn->prepare("SELECT * FROM profil WHERE Id = ?");
+        $stmt->execute([$id]);
+        $profil = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($profil) {
+            $_SESSION['tribu'] = $profil['Tribu'];
+            $_SESSION['force'] = $profil['Force'];
+            $_SESSION['compagnon'] = $profil['Compagnon'];
+            $_SESSION['phrase'] = $profil['Phrase'];
+        }
+    }
 	
+
+    // Enregistrement des modifications du profil
+    if (isset($_POST['save_profile'])) {
+      $_SESSION['tribu'] = $_POST['tribu'];
+      $_SESSION['force'] = $_POST['force'];
+      $_SESSION['compagnon'] = $_POST['compagnon'];
+      $_SESSION['phrase'] = $_POST['phrase'];
+      // On revient à l'affichage classique après enregistrement
+      $stmt = $conn->prepare("UPDATE profil SET Tribu = ?, `Force` = ?, Compagnon = ?, Phrase = ? WHERE Id = ?");
+      $stmt->execute([$_SESSION['tribu'], $_SESSION['force'], $_SESSION['compagnon'], $_SESSION['phrase'], $_SESSION['Id']]);
+      // Redirection pour éviter la resoumission du formulaire
+      header('Location: profil.php');
+      
+    }
+    
+    
 
 
 ?>
