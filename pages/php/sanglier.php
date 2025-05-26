@@ -118,8 +118,8 @@
           endGame();
         }
 
-        if (timeLeft % 5 === 0 && difficulty > 300) {
-          difficulty -= 200;
+        if (timeLeft % 5 === 0 && difficulty > 500) {
+          difficulty -= 50;
           resetBoarInterval();
         }
       }, 1000);
