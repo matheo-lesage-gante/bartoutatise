@@ -20,6 +20,7 @@
 			</div>
 
 			<div class="boite3">
+                <a href="sanglier.php">
             <img src="../../img/.jpg" class="image">
 			</div>
 		</div>
