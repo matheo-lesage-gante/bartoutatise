@@ -91,8 +91,8 @@
         <option value="option5">Verre de Vin blanc</option>
         <option value="option6">Verre de Rosé</option>
         <option value="option7">Verre de Champagne</option>
-        <option value="option8">Jagger boob</option>
-        <option value="option9">sky coca</option>
+        <option value="option8">Jagger Bomb</option>
+        <option value="option9">Sky coca</option>
         <option value="option10">Mojito</option>
         <option value="option11">Sex on the Beach</option>
         <option value="option12">Margarita</option>
@@ -168,9 +168,9 @@
                 <span id="Verre_Champagne">0</span>
             </div>
         </div>
-        <div id="Yager" class="div_verre">
-            <label for="Yager_Boob">Yager</label>
-            <span id="Yager_Boob">0</span>
+        <div id="Jagger" class="div_verre">
+            <label for="Jagger_Bomb">Jagger</label>
+            <span id="Jagger_Bomb">0</span>
         </div>
         <div id="sky" class="div_verre">
             <div class="verre" id="Sky">
