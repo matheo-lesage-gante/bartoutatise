@@ -66,7 +66,7 @@
             document.getElementById("VB").textContent = VB;
             document.getElementById("VRO").textContent = VRO;
             document.getElementById("Verre_Champagne").textContent = Verre_Champagne;
-            document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
+            document.getElementById("Jager_Bomb").textContent = Jager_Bomb;
             document.getElementById("Sky_Coca").textContent = Sky_Coca;
             document.getElementById("Verre_Mojito").textContent = Verre_Mojito;
             document.getElementById("Verre_Sex").textContent = Verre_Sex;
@@ -91,7 +91,7 @@
         <option value="option5">Verre de Vin blanc</option>
         <option value="option6">Verre de Rosé</option>
         <option value="option7">Verre de Champagne</option>
-        <option value="option8">Jagger Bomb</option>
+        <option value="option8">Jager Bomb</option>
         <option value="option9">Sky coca</option>
         <option value="option10">Mojito</option>
         <option value="option11">Sex on the Beach</option>
@@ -168,9 +168,9 @@
                 <span id="Verre_Champagne">0</span>
             </div>
         </div>
-        <div id="Jagger" class="div_verre">
-            <label for="Jagger_Bomb">Jagger</label>
-            <span id="Jagger_Bomb">0</span>
+        <div id="Jager" class="div_verre">
+            <label for="Jager_Bomb">Jager</label>
+            <span id="Jager_Bomb">0</span>
         </div>
         <div id="sky" class="div_verre">
             <div class="verre" id="Sky">
@@ -303,7 +303,7 @@
         let VB = 0;
         let VRO = 0;
         let Verre_Champagne = 0;
-        let Jagger_Bomb = 0;
+        let Jager_Bomb = 0;
         let Sky_Coca = 0;
         let Verre_Mojito = 0;
         let Verre_Sky = 0;
@@ -324,7 +324,7 @@
         
         const Verres = {
             Verre_biere1, Verre_biere2, Verre_biere3, VR, VB, VRO,
-            Verre_Champagne, Jagger_Bomb, Sky_Coca, Verre_Mojito, Verre_Sex,
+            Verre_Champagne, Jager_Bomb, Sky_Coca, Verre_Mojito, Verre_Sex,
             Verre_Margarita, Verre_Monaco, Verre_Pina, Verre_Blood,
             Verre_Martini, Verre_Ricard, shot1, shot2, shot3
         };
@@ -473,11 +473,11 @@
                     saveToCookie();
                     break;
 
-                case "option8" : //Jagger
+                case "option8" : //Jager
                     alcoolPur = 28;
                     taux += alcoolPur / (poids * coeff_sexe);
-                    Jagger_Bomb += 1;
-                    document.getElementById("Jagger_Bomb").textContent = Jagger_Bomb;
+                    Jager_Bomb += 1;
+                    document.getElementById("Jager_Bomb").textContent = Jager_Bomb;
                     saveToCookie();
                     break;
 
@@ -657,7 +657,7 @@
             VB = 0;
             VRO = 0;
             Verre_Champagne = 0;
-            Jagger_Bomb = 0;
+            Jager_Bomb = 0;
             Sky_Coca = 0;
             Verre_Mojito = 0;
             Verre_Sky = 0;
@@ -679,7 +679,7 @@
             document.getElementById("VB").textContent = "0";
             document.getElementById("VRO").textContent = "0";
             document.getElementById("Verre_Champagne").textContent = "0";
-            document.getElementById("Jagger_Bomb").textContent = "0";
+            document.getElementById("Jager_Bomb").textContent = "0";
             document.getElementById("Sky_Coca").textContent = "0";
             document.getElementById("Verre_Mojito").textContent = "0";
             document.getElementById("Verre_Sex").textContent = "0";
