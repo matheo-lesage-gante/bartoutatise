@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        <?php include 'header.php'; ?>
         <div id="conteneur0">
 
             <?php 

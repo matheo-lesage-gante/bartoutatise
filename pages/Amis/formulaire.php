@@ -50,7 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<p>ID : " . $resultat['Id'] . "</p>";
             for ($index = 1; $index < 11; $index++) {
                 if ($resultat['Ami'.$index] != NULL) {
-                    echo "<p>Ami".$index." : " . $resultat['Ami'.$index] . "</p>";
+                    $a=$resultat['Ami'.$index];
+                    $reqAmi = "SELECT Pseudo FROM profil WHERE Id = :idAmi";
+                    $stmtAmi = $conn->prepare($reqAmi);
+                    $stmtAmi->bindParam(':idAmi', $a);
+                    $stmtAmi->execute();
+                    $amiResult = $stmtAmi->fetch();
+                    echo "<p>Ami".$index." : " . htmlspecialchars($amiResult['Pseudo']) . "</p>";
+                    
                 }
             }
 

@@ -15,6 +15,7 @@
         <li><a href="../php/index.php">Cervesia</a></li>
         <li><a href="../Amis/amis.php">Amix</a></li>
         <li><a href="../php/Map.php">Carte des Auberges</a></li>
+        <li><a href="../php/jeu.php">Jux d'Alcoolux</a></li>
         <li><a href="../php/taux_alcoolemie.php">Calculix alcoolix</a></li>
         <li><a href="../Avis/mes_avis.php">Avix</a></li>
 
