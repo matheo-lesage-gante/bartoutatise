@@ -950,7 +950,6 @@ function updateProjectionAnnotations(projections) {
         mess_taux.className = "message-taux";
         mess_taux.textContent = "Taux estimé : " + taux_c.toFixed(2) + " g/l";
         document.body.appendChild(mess_taux);
-
     </script>
 
 </body>
