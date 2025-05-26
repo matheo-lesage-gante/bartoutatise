@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../../css/jeu.css">
     </head>
     <body>
+        <?php include 'header.php'; ?>
     
         <div id="conteneur">
 			<div class="boite1">
