@@ -148,23 +148,23 @@ if (isset($_POST['save_profile'])) {
       <div class="trophees">
         <div class="trophee">
           <img src="trophee1.png" alt="Trophée 1" />
-          <p>Trophée 1</p>
+          <p>Mettre 3 avis</p>
         </div>
         <div class="trophee">
           <img src="trophee2.png" alt="Trophée 2" />
-          <p>Trophée 2</p>
+          <p>Mettre 5 avis</p>
         </div>
         <div class="trophee trophee-cache">
           <img src="trophee3.png" alt="Trophée 3" />
-          <p>Trophée 3</p>
+          <p>Boire 5 bière en 1 soirée</p>
         </div>
         <div class="trophee trophee-cache">
           <img src="trophee4.png" alt="Trophée 4" />
-          <p>Trophée 4</p>
+          <p>Jouer à 1 mini-jeux</p>
         </div>
         <div class="trophee trophee-cache">
           <img src="trophee5.png" alt="Trophée 5" />
-          <p>Trophée 5</p>
+          <p>Jouer à 3 mini-jeux</p>
         </div>
         <button id="voirPlusBtn">Voir plus...</button>
         <button id="voirMoinsBtn" style="display: none;">Voir moins...</button>

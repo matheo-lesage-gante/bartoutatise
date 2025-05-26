@@ -294,7 +294,6 @@
                 graphContainer.style.display = 'none';
             }
         });
-        let intervalId = null;
         let taux = 0;
         let Verre_biere1 = 0;
         let Verre_biere2 = 0;
@@ -589,20 +588,26 @@
             update_fond(taux);
     
             intervalId = setInterval(() => {
+                removeOldMessages();
                 if (taux > 0) {
-                    taux = Math.max(0, taux - 0.0025);
+                    taux = Math.max(0, taux - 0.1);
+                    updateChart(taux);
+                    updateBeerGlass(taux);
                     saveToCookie();
                     if(taux == 0){
                         clearInterval(intervalId);
-                        alert("Vous n'avez plus d'alcool détectable dans le sang.");
+                        removeOldMessages();
+                        mess_taux = document.createElement("div");
+                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                        document.body.appendChild(mess_taux);
+                        update_fond(taux);
                     }
                     else {
                         removeOldMessages();
                         mess_taux = document.createElement("div");
-                        mess_taux.textContent = "taux estimé : " + taux.toFixed(3) + " g/l";
+                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
                         document.body.appendChild(mess_taux);
                         update_fond(taux);
-                        updateChart(taux);
                     }
                 }
             }, 60000);
@@ -613,16 +618,17 @@
             // Trouver le dernier message-taux créé
             const messages = document.querySelectorAll(".message-taux");
             if (messages.length === 0) return;
-            
-            const dernierMessage = messages[messages.length - 1];
-            
-            // Appliquer les classes en fonction du taux
-            dernierMessage.classList.remove('danger', 'safe');
-            
-            if (taux < 0.25) {
-                dernierMessage.classList.add('safe');
-            } else {
-                dernierMessage.classList.add('danger');
+            else{
+                const dernierMessage = messages[messages.length - 1];
+                
+                // Appliquer les classes en fonction du taux
+                dernierMessage.classList.remove('danger', 'safe');
+                
+                if (taux < 0.25) {
+                    dernierMessage.classList.add('safe');
+                } else {
+                    dernierMessage.classList.add('danger');
+                }
             }
         }      
 
