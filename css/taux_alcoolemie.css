@@ -249,41 +249,136 @@ button:hover {
     text-align: center;
 }
 
-/* Media Queries pour les petits écrans */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    
-    #titre {
-        font-size: 1.5em;
-    }
-    
+@media screen and (max-width: 1024px) { 
     #List_Verre {
-        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 90%;
         max-height: 200px;
+        margin: 20px auto;
+        order: 1;
+    }
+    
+    .beer-container {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin: 20px auto;
+        order: 2;
+    }
+    
+    #graph-container {
+        width: 90%;
+        height: 350px;
     }
     
     .message-taux {
-        width: 90%;
-        min-width: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 10px auto;
+        transform: none;
     }
     
     #supp_cookie {
         position: fixed;
         bottom: 10px;
         right: 10px;
+        padding: 8px 12px;
+        font-size: 0.8em;
+        z-index: 1000;
+    }
+    
+    .projection-container {
+        bottom: 60px;
+        right: 10px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    body {
+        padding: 10px;
+        align-items: stretch;
+    }
+    
+    #titre {
+        font-size: 1.8em;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    #poidsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    select, input {
+        width: 90%;
+        margin: 5px auto;
+    }
+    
+    .button {
+        position: static;
+        margin: 10px auto;
+        display: block;
+        width: 90%;
+    }
+    
+    #List_Verre {
+        width: 95%;
+        max-height: 180px;
+    }
+    
+    .div_verre {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nb_verre {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    #graph-container {
+        height: 300px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    #List_Verre {
-        grid-template-columns: 1fr;
-        max-height: 150px;
+    #titre {
+        font-size: 1.5em;
+        margin-bottom: 10px;
     }
     
-    select, input, button {
-        padding: 6px 10px;
+    #List_Verre {
+        max-height: 150px;
         font-size: 0.8em;
+    }
+    
+    .verre {
+        font-size: 0.7em;
+    }
+    
+    #graph-container {
+        height: 250px;
+        padding: 10px;
+    }
+    
+    .projection-container {
+        width: 90%;
+        right: 5%;
+        font-size: 0.9em;
+    }
+    
+    #supp_cookie {
+        font-size: 0.7em;
+        padding: 6px 10px;
+    }
+    
+    .beer-glass {
+        width: 60px;
+        height: 120px;
     }
 }
