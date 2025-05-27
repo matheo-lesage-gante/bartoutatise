@@ -603,8 +603,9 @@
                     removeOldMessages();
                     mess_taux = document.createElement("div");
                     mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                    mess_taux.className = "message-taux";
                     document.body.appendChild(mess_taux);
-                    update_fond(taux);
+                    mess_taux.classList.add('safe');
                 }
                 else {
                     if(taux > 0.25){
