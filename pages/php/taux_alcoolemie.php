@@ -14,6 +14,7 @@
         alert("Attention à plus de 0,25 mg/l d'air expiré il est interdit de prendre le volant \nLe taux qu'on va vous donner est approximatif");
         window.onload = function () {
             document.getElementById('graph-container').style.display = 'none';
+            mess_debut();
             poids();
             verifierBiere();
             loadFromCookie();
@@ -587,32 +588,44 @@
             updateChart(taux);
             update_fond(taux);
     
-            intervalId = setInterval(() => {
-                removeOldMessages();
-                if (taux > 0) {
-                    taux = Math.max(0, taux - 0.1);
-                    updateChart(taux);
-                    updateBeerGlass(taux);
-                    saveToCookie();
-                    if(taux == 0){
-                        clearInterval(intervalId);
-                        removeOldMessages();
-                        mess_taux = document.createElement("div");
-                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-                        document.body.appendChild(mess_taux);
-                        update_fond(taux);
-                    }
-                    else {
-                        removeOldMessages();
-                        mess_taux = document.createElement("div");
-                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
-                        document.body.appendChild(mess_taux);
-                        update_fond(taux);
-                    }
-                }
-            }, 60000);
             document.getElementById("taux").textContent = taux.toFixed(3);
         }
+
+        intervalId = setInterval(() => {
+            removeOldMessages();
+            if (taux > 0) {
+                taux = Math.max(0, taux - 0.1);
+                updateChart(taux);
+                updateBeerGlass(taux);
+                saveToCookie();
+                if(taux == 0){
+                    clearInterval(intervalId);
+                    removeOldMessages();
+                    mess_taux = document.createElement("div");
+                    mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                    document.body.appendChild(mess_taux);
+                    update_fond(taux);
+                }
+                else {
+                    if(taux > 0.25){
+                        removeOldMessages();
+                        mess_taux = document.createElement("div");
+                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                        mess_taux.className = "message-taux";
+                        document.body.appendChild(mess_taux);
+                        mess_taux.classList.add('danger');
+                    }
+                    else{
+                        removeOldMessages();
+                        mess_taux = document.createElement("div");
+                        mess_taux.textContent = "taux estimé : " + taux.toFixed(2) + " g/l";
+                        mess_taux.className = "message-taux";
+                        document.body.appendChild(mess_taux);
+                        mess_taux.classList.add('safe');
+                    }
+                }
+            }
+        }, 60000);
 
         function update_fond(taux) {
             // Trouver le dernier message-taux créé
@@ -942,14 +955,16 @@ function updateProjectionAnnotations(projections) {
             document.body.appendChild(container);
         }
 
-        const cookieRow = document.cookie.split('; ').find(row => row.startsWith('alcoolData='));
-        const cookieValue = decodeURIComponent(cookieRow.split('=')[1]);
-        const alcoolData = JSON.parse(cookieValue);
-        taux_c = alcoolData.taux;
-        const mess_taux = document.createElement("div");
-        mess_taux.className = "message-taux";
-        mess_taux.textContent = "Taux estimé : " + taux_c.toFixed(2) + " g/l";
-        document.body.appendChild(mess_taux);
+        function mess_debut(){
+            const cookieRow = document.cookie.split('; ').find(row => row.startsWith('alcoolData='));
+            const cookieValue = decodeURIComponent(cookieRow.split('=')[1]);
+            const alcoolData = JSON.parse(cookieValue);
+            taux_c = alcoolData.taux;
+            const mess_taux = document.createElement("div");
+            mess_taux.className = "message-taux";
+            mess_taux.textContent = "Taux estimé : " + taux_c.toFixed(2) + " g/l";
+            document.body.appendChild(mess_taux);
+        }
     </script>
 
 </body>
