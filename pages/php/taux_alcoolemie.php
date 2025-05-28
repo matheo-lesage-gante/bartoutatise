@@ -279,6 +279,7 @@
         <canvas id="alcoholChart"></canvas>
     </div>
 
+
     <br><br>
     <button class="button" onclick="calculerTaux()">Ajouter</button>
     <button class="button" onclick="resetTaux(); resetVerre()">Reset</button>
